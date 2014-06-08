@@ -22,13 +22,16 @@ class Dog {
 	// The color of its coat
 	String mColor;
 
-	// ADD MEMBER VARIABLES HERE IF NECESSARY
+	int mMealCount = 0;
+	int mPlayCount = 0;
 
 	/*
 	 * getHairLength
 	 * @return this Dog's hair length
 	 */
-	// ADD YOUR METHOD HERE, NAME MUST MATCH DESCRIPTION
+	float getHairLength() {
+		return mHairLength;
+	}
 
 	/*
 	 * setHairLength
@@ -36,13 +39,17 @@ class Dog {
 	 * @param hairLength the new length of the hair, a float
 	 * @return nothing
 	 */
-	// ADD YOUR METHOD HERE, NAME MUST MATCH DESCRIPTION
+	void setHairLength(float hairLength) {
+		mHairLength = hairLength;
+	}
 
 	/*
 	 * getGender
 	 * @return this Dog's gender
 	 */
-	// ADD YOUR METHOD HERE, NAME MUST MATCH DESCRIPTION
+	String getGender() {
+		return mGender;
+	}
 
 	/*
 	 * setGender
@@ -50,13 +57,17 @@ class Dog {
 	 * @param gender the new gender of the Dog, a String
 	 * @return nothing
 	 */
-	// ADD YOUR METHOD HERE, NAME MUST MATCH DESCRIPTION
+	void setGender(String gender) {
+		mGender = gender;
+	}
 
 	/*
 	 * getSize
 	 * @return the size of the dog
 	 */
-	// ADD YOUR METHOD HERE, NAME MUST MATCH DESCRIPTION
+	String getSize() {
+		return mSize;
+	}
 
 	/*
 	 * setSize
@@ -64,13 +75,17 @@ class Dog {
 	 * @param size the new size of the Dog, a String
 	 * @return nothing
 	 */
-	// ADD YOUR METHOD HERE, NAME MUST MATCH DESCRIPTION
+	void setSize(String size) {
+		mSize = size;
+	}
 
 	/*
 	 * getAge
 	 * @return this Dog's age
 	 */
-	// ADD YOUR METHOD HERE, NAME MUST MATCH DESCRIPTION
+	int getAge() {
+		return mAge;
+	}
 
 	/*
 	 * setAge
@@ -78,13 +93,17 @@ class Dog {
 	 * @param age the new age of the Dog, an int
 	 * @return nothing
 	 */
-	// ADD YOUR METHOD HERE, NAME MUST MATCH DESCRIPTION
+	void setAge(int age) {
+		mAge = age;
+	}
 
 	/*
 	 * getWeight
 	 * @return this Dog's weight
 	 */
-	// ADD YOUR METHOD HERE, NAME MUST MATCH DESCRIPTION
+	float getWeight() {
+		return mWeight;
+	}
 
 	/*
 	 * setWeight
@@ -92,13 +111,17 @@ class Dog {
 	 * @param weight the new weight of the Dog, a float
 	 * @return nothing
 	 */
-	// ADD YOUR METHOD HERE, NAME MUST MATCH DESCRIPTION
+	void setWeight(float weight) {
+		mWeight = weight;
+	}
 
 	/*
 	 * getColor
 	 * @return this Dog's color
 	 */
-	// ADD YOUR METHOD HERE, NAME MUST MATCH DESCRIPTION
+	String getColor() {
+		return mColor;
+	}
 
 	/*
 	 * setColor
@@ -106,7 +129,9 @@ class Dog {
 	 * @param color the new color of the Dog's coat, a String
 	 * @return nothing
 	 */
-	// ADD YOUR METHOD HERE, NAME MUST MATCH DESCRIPTION
+	void setColor(String color) {
+		mColor = color;
+	}
 
 	/*
 	 * feed
@@ -116,7 +141,37 @@ class Dog {
 	 *                   "average" (3 meals later ->) "large"
 	 * @return nothing
 	 */
-	// ADD YOUR METHOD HERE, NAME MUST MATCH DESCRIPTION
+	void feed() {
+		mMealCount++;
+		mWeight += WEIGHT_GAIN;
+
+		if(mMealCount % 3 == 0) {
+
+			switch(mSize) {
+				case "tiny":
+					mSize = "small";
+					break;
+
+				case "small":
+					mSize = "average";
+					break;
+
+				case "average":
+					mSize = "large";
+					break;
+
+				case "large":
+					mSize = "large";
+					break;
+
+				default:
+					mSize = "large";
+
+			}
+
+		}
+
+	}
 
 	/*
 	 * play
@@ -126,7 +181,42 @@ class Dog {
      *              3. The Dog cannot shrink to a weight smaller than *                 MIN_WEIGHT
 	 * @return nothing
 	 */
-	// ADD YOUR METHOD HERE, NAME MUST MATCH DESCRIPTION
+	void play() {
+
+		mPlayCount++;
+
+		mWeight -= WEIGHT_LOSS;
+
+		if(mWeight < MIN_WEIGHT) {
+			mWeight = MIN_WEIGHT;
+		}
+
+		if(mPlayCount % 6 == 0) {
+
+
+			switch(mSize) {
+
+				case "large":
+				mSize = "average";
+				break;
+
+				case "average":
+				mSize = "small";
+				break;
+
+				case "small":
+				mSize = "tiny";
+				break;
+
+				default:
+				mSize = "tiny";
+
+			}
+
+		}
+
+
+	}
 
 	/*
 	 * cutHair
@@ -134,6 +224,12 @@ class Dog {
      * The Dog's hair cannot be shorter than 0f
 	 * @return nothing
 	 */
-	// ADD YOUR METHOD HERE, NAME MUST MATCH DESCRIPTION
+	void cutHair() {
+		mHairLength -= HAIR_CUT_LENGTH;
+
+		if(mHairLength < 0f) {
+			mHairLength = 0f;
+		}
+	}
 
 }
