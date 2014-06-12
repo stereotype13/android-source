@@ -1,22 +1,22 @@
 package com.bloc.securitypackages;
 
-class Color extends Object {
+public class Color extends Object {
 	// Name of the color
-	String mName;
+	public String mName;
 	// Alpha value
-	int mAlpha;
+	public int mAlpha;
 	// Red value
-	int mRed;
+	public int mRed;
 	// Green value
-	int mGreen;
+	public int mGreen;
 	// Blue value
-	int mBlue;
+	public int mBlue;
 
-	Color(int red, int green, int blue) {
+	public Color(int red, int green, int blue) {
 		this(null, red, green, blue);
 	}
 
-	Color(String name, int red, int green, int blue) {
+	public Color(String name, int red, int green, int blue) {
 		mName = name;
 		mRed = red;
 		mGreen = green;
