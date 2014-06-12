@@ -9,16 +9,18 @@ import java.util.*;
 public class MyArrayList<E> extends Object implements List<E> {
 
 	// Use this object array as your backing data storage
-	private Object[] mList;
+	//private Object[] mList;
+	private ArrayList<E> mList = new ArrayList<E>();
 
 	public MyArrayList() {
-		mList = new Object[0];
+		//mList = new Object[0];
+		mList = new ArrayList<E>();
 	}
 
 	@Override
 	public boolean add(E e) {
-		// YOUR WORK HERE
-		return false;
+		return mList.add(e);
+		
 	}
 
 	@Override
@@ -39,12 +41,14 @@ public class MyArrayList<E> extends Object implements List<E> {
 	@Override
 	public void clear() {
 		// YOUR WORK HERE
+		mList.clear();
 	}
 
 	@Override
 	public boolean contains(Object o) {
 		// YOUR WORK HERE
-		return false;
+		//return false;
+		return mList.contains(o);
 	}
 
 	@Override
@@ -60,7 +64,8 @@ public class MyArrayList<E> extends Object implements List<E> {
 	@Override
 	public E get(int index) {
 		// YOUR WORK HERE
-		return null;
+		//return null;
+		return mList.get(index);
 	}
 
 	@Override
@@ -71,13 +76,15 @@ public class MyArrayList<E> extends Object implements List<E> {
 	@Override
 	public int indexOf(Object o) {
 		// YOUR WORK HERE
-		return 0;
+		//return 0;
+		return mList.indexOf(o);
 	}
 
 	@Override
 	public boolean isEmpty() {
 		// YOUR WORK HERE
-		return false;
+		//return false;
+		return mList.isEmpty();
 	}
 
 	@Override
@@ -103,13 +110,15 @@ public class MyArrayList<E> extends Object implements List<E> {
 	@Override
 	public E remove(int index) {
 		// YOUR WORK HERE
-		return null;
+		//return null;
+		return mList.remove(index);
 	}
 
 	@Override
 	public boolean remove(Object o) {
 		// YOUR WORK HERE
-		return false;
+		//return false;
+		return mList.remove(o);
 	}
 
 	@Override
@@ -125,13 +134,15 @@ public class MyArrayList<E> extends Object implements List<E> {
 	@Override
 	public E set(int index, E element) {
 		// YOUR WORK HERE
-		return null;
+		//return null;
+		return mList.set(index, element);
 	}
 
 	@Override
 	public int size() {
 		// YOUR WORK HERE
-		return 0;
+		//return 0;
+		return mList.size();
 	}
 
 	@Override
