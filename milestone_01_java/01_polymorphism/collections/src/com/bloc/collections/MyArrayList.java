@@ -10,12 +10,10 @@ public class MyArrayList<E> extends Object implements List<E> {
 
 	// Use this object array as your backing data storage
 	private Object[] mList;
-	//private ArrayList<E> mList = new ArrayList<E>();
 
 	public MyArrayList() {
 		mList = new Object[0];
 
-		//mList = new ArrayList<E>();
 	}
 
 	@Override
@@ -51,15 +49,14 @@ public class MyArrayList<E> extends Object implements List<E> {
 	@Override
 	public void clear() {
 		// YOUR WORK HERE
-		//mList.clear();
+;
 		mList = new Object[0];
 	}
 
 	@Override
 	public boolean contains(Object o) {
 		// YOUR WORK HERE
-		//return false;
-		//return mList.contains(o);
+
 		for(int i = 0; i < mList.length; ++i) {
 			if(mList[i] == o) {
 				return true;
@@ -81,8 +78,7 @@ public class MyArrayList<E> extends Object implements List<E> {
 	@Override
 	public E get(int index) {
 		// YOUR WORK HERE
-		//return null;
-		//return mList.get(index);
+
 		return (E)mList[index];
 	}
 
@@ -94,8 +90,7 @@ public class MyArrayList<E> extends Object implements List<E> {
 	@Override
 	public int indexOf(Object o) {
 		// YOUR WORK HERE
-		//return 0;
-		//return mList.indexOf(o);
+
 		for(int i = 0; i < mList.length; ++i) {
 			if(mList[i] == o) {
 				return i;
@@ -107,8 +102,7 @@ public class MyArrayList<E> extends Object implements List<E> {
 	@Override
 	public boolean isEmpty() {
 		// YOUR WORK HERE
-		//return false;
-		//return mList.isEmpty();
+
 		if(mList.length != 0) {
 			return false;
 		}
@@ -140,8 +134,13 @@ public class MyArrayList<E> extends Object implements List<E> {
 	@Override
 	public E remove(int index) {
 		// YOUR WORK HERE
-		//return null;
-		//return mList.remove(index);
+		
+		if(mList.length - 1 <= 0) {
+			Object temp = mList[index];
+			mList = new Object[0];
+			return (E)temp;
+		}
+
 		Object[] temp = new Object[mList.length - 1];
 		int j = 0;
 		for(int i = 0; i < mList.length; ++i) {
@@ -158,19 +157,22 @@ public class MyArrayList<E> extends Object implements List<E> {
 	@Override
 	public boolean remove(Object o) {
 		// YOUR WORK HERE
-		//return false;
-		//return mList.remove(o);
+
 		int objectCount = 0;
 		for(int i = 0; i < mList.length; ++i) {
 			if(mList[i] == o) {
 				++objectCount;
 			}
 		}
+		if(objectCount == 0) {
+			return false;
+		}
 
 		Object[] temp = new Object[mList.length - objectCount];
+		
 		int j = 0;
 		for(int i = 0; i < mList.length; ++i) {
-			if(mList != o) {
+			if(mList[i] != o) {
 				temp[j] = mList[i];
 				++j;
 			}

@@ -33,7 +33,7 @@ public class Main extends Object {
 				System.out.println("ERROR: The object at index 1 doesn't match\n");
 				System.exit(1);
 			}
-
+			//System.out.println("I'm here");
 			if (1 != myStringList.indexOf("Another Stringy")) {
 				System.out.println("ERROR: The object at index 1 doesn't match\n");
 				System.exit(1);
