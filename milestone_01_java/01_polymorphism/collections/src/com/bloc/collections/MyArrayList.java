@@ -9,17 +9,27 @@ import java.util.*;
 public class MyArrayList<E> extends Object implements List<E> {
 
 	// Use this object array as your backing data storage
-	//private Object[] mList;
-	private ArrayList<E> mList = new ArrayList<E>();
+	private Object[] mList;
+	//private ArrayList<E> mList = new ArrayList<E>();
 
 	public MyArrayList() {
-		//mList = new Object[0];
-		mList = new ArrayList<E>();
+		mList = new Object[0];
+
+		//mList = new ArrayList<E>();
 	}
 
 	@Override
 	public boolean add(E e) {
-		return mList.add(e);
+		//return mList.add(e);
+		Object[] temp = new Object[mList.length + 1];
+
+		for(int i = 0; i < mList.length; ++i) {
+			temp[i] = mList[i];
+		}
+		temp[temp.length - 1] = e;
+		mList = temp;
+
+		return true;
 		
 	}
 
@@ -41,14 +51,21 @@ public class MyArrayList<E> extends Object implements List<E> {
 	@Override
 	public void clear() {
 		// YOUR WORK HERE
-		mList.clear();
+		//mList.clear();
+		mList = new Object[0];
 	}
 
 	@Override
 	public boolean contains(Object o) {
 		// YOUR WORK HERE
 		//return false;
-		return mList.contains(o);
+		//return mList.contains(o);
+		for(int i = 0; i < mList.length; ++i) {
+			if(mList[i] == o) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@Override
@@ -65,7 +82,8 @@ public class MyArrayList<E> extends Object implements List<E> {
 	public E get(int index) {
 		// YOUR WORK HERE
 		//return null;
-		return mList.get(index);
+		//return mList.get(index);
+		return (E)mList[index];
 	}
 
 	@Override
@@ -77,14 +95,26 @@ public class MyArrayList<E> extends Object implements List<E> {
 	public int indexOf(Object o) {
 		// YOUR WORK HERE
 		//return 0;
-		return mList.indexOf(o);
+		//return mList.indexOf(o);
+		for(int i = 0; i < mList.length; ++i) {
+			if(mList[i] == o) {
+				return i;
+			}
+		}
+		return -1;
 	}
 
 	@Override
 	public boolean isEmpty() {
 		// YOUR WORK HERE
 		//return false;
-		return mList.isEmpty();
+		//return mList.isEmpty();
+		if(mList.length != 0) {
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 
 	@Override
@@ -111,14 +141,42 @@ public class MyArrayList<E> extends Object implements List<E> {
 	public E remove(int index) {
 		// YOUR WORK HERE
 		//return null;
-		return mList.remove(index);
+		//return mList.remove(index);
+		Object[] temp = new Object[mList.length - 1];
+		int j = 0;
+		for(int i = 0; i < mList.length; ++i) {
+			if(i != index) {
+				temp[j] = mList[i];
+				++j;
+			}
+			
+		}
+		mList = temp;
+		return (E)mList[index];
 	}
 
 	@Override
 	public boolean remove(Object o) {
 		// YOUR WORK HERE
 		//return false;
-		return mList.remove(o);
+		//return mList.remove(o);
+		int objectCount = 0;
+		for(int i = 0; i < mList.length; ++i) {
+			if(mList[i] == o) {
+				++objectCount;
+			}
+		}
+
+		Object[] temp = new Object[mList.length - objectCount];
+		int j = 0;
+		for(int i = 0; i < mList.length; ++i) {
+			if(mList != o) {
+				temp[j] = mList[i];
+				++j;
+			}
+		}
+		mList = temp;
+		return true;
 	}
 
 	@Override
@@ -135,14 +193,17 @@ public class MyArrayList<E> extends Object implements List<E> {
 	public E set(int index, E element) {
 		// YOUR WORK HERE
 		//return null;
-		return mList.set(index, element);
+		//return mList.set(index, element);
+		mList[index] = element;
+		return element;
+
 	}
 
 	@Override
 	public int size() {
 		// YOUR WORK HERE
 		//return 0;
-		return mList.size();
+		return mList.length;
 	}
 
 	@Override
