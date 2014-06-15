@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BlocNotes/BlocNotes.iml" filepath="$PROJECT_DIR$/BlocNotes/BlocNotes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blocnotes.iml" filepath="$PROJECT_DIR$/blocnotes.iml" />
+    </modules>
+  </component>
+</project>
+
