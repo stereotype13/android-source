@@ -1,6 +1,7 @@
 package com.bloc.singletons;
 
 import java.util.*;
+import java.lang.*;
 
 /*
  * This is a singleton class which maintains communication
@@ -70,9 +71,11 @@ public class Speakerphone extends Object {
 	 * HINT: see Class.isAssignableFrom()
 	 *		 http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html#isAssignableFrom(java.lang.Class)
 	 */
-	public void shoutMessage(Talker talker, java.lang.Class cls) {
+	public void shoutMessage(Talker talker, Class cls) {
+		Class listenerClass;
 		for(Listener listener: mListeners) {
-			if(listener.class.isAssignableFrom(cls)) {
+			listenerClass = listener.getClass();
+			if(listenerClass.isAssignableFrom(cls)) {
 				listener.onMessageReceived(talker.getMessage());
 			}
 			
