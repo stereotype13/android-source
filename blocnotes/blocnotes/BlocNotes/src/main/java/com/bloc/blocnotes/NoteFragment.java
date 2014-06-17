@@ -12,12 +12,17 @@ import android.widget.LinearLayout;
  * Created by stereotype13 on 6/15/14.
  */
 public class NoteFragment extends Fragment {
+
+    private EditText mEditText;
+
     NoteFragment() {
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+
+        /*
         EditText editText = new EditText(getActivity());
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
@@ -25,7 +30,14 @@ public class NoteFragment extends Fragment {
         //linearLayout.addView(editView, params);
         //container.addView(editText, params);
         editText.setLayoutParams(params);
+
         return editText;
+        */
+       // View rootView = inflater.inflate(R.layout.fragment_note, container);
+        //EditText mEditText = (EditText) rootView.findViewById(R.id.etEditText1);
+        mEditText = new EditText(getActivity());
+        mEditText.findViewById(R.id.etEditText1);
+        return mEditText;
     }
 
 
