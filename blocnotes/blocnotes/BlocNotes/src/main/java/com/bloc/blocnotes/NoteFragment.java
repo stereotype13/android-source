@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 /**
  * Created by stereotype13 on 6/15/14.
@@ -14,32 +15,45 @@ import android.widget.LinearLayout;
 public class NoteFragment extends Fragment {
 
     private EditText mEditText;
+    private String mBodyText;
 
-    NoteFragment() {
+    public NoteFragment() {
 
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if(savedInstanceState != null){
+
+            mBodyText = savedInstanceState.getString("body");
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
-        /*
-        EditText editText = new EditText(getActivity());
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        //linearLayout.addView(editView, params);
-        //container.addView(editText, params);
-        editText.setLayoutParams(params);
+        View rootView = inflater.inflate(R.layout.fragment_note, container, false);
+        mEditText = (EditText) rootView.findViewById(R.id.etEditText1);
 
-        return editText;
-        */
-       // View rootView = inflater.inflate(R.layout.fragment_note, container);
-        //EditText mEditText = (EditText) rootView.findViewById(R.id.etEditText1);
-        mEditText = new EditText(getActivity());
-        mEditText.findViewById(R.id.etEditText1);
-        return mEditText;
+        if(savedInstanceState != null) {
+            mBodyText = savedInstanceState.getString("body");
+            mEditText.setText(mBodyText);
+        }
+        //mEditText.setText(mBodyText);
+        //mEditText.setText("Hello, World!");
+        return rootView;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("body", mEditText.getText().toString());
+
+
+
     }
 
 
-}
 
+}

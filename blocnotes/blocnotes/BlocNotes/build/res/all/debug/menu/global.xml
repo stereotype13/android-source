@@ -3,5 +3,7 @@
         android:title="@string/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never" />
+
+
 </menu>
 <!-- From: file:/C:/Users/rhodel/Documents/bloc/android/blocnotes/blocnotes/BlocNotes/src/main/res/menu/global.xml -->

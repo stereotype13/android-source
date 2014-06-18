@@ -11,12 +11,15 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class BlocNotes extends Activity
@@ -44,9 +47,14 @@ public class BlocNotes extends Activity
         mTitle = getTitle();
 
         // New NoteFragment
-        mNoteFragment = new NoteFragment();
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.container, mNoteFragment).commit();
+        if(savedInstanceState == null) {
+            mNoteFragment = new NoteFragment();
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.container, mNoteFragment).commit();
+
+
+         }
+
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
@@ -55,6 +63,7 @@ public class BlocNotes extends Activity
 
 
     }
+
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
@@ -114,6 +123,13 @@ public class BlocNotes extends Activity
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
+        }
+        switch (id) {
+            case R.id.ic_menu_cut:
+                EditText editText = (EditText)findViewById(R.id.etEditText1);
+                editText.setText("");
+                break;
+            default:
         }
         return super.onOptionsItemSelected(item);
     }

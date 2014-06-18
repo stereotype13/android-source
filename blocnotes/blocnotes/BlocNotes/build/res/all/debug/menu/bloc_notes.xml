@@ -8,5 +8,9 @@
         android:title="@string/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never" />
+    <item android:id="@+id/ic_menu_cut"
+        android:title="Erase"
+        android:showAsAction="always"
+        />
 </menu>
 <!-- From: file:/C:/Users/rhodel/Documents/bloc/android/blocnotes/blocnotes/BlocNotes/src/main/res/menu/bloc_notes.xml -->
