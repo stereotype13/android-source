@@ -21,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import com.bloc.blocnotes.R;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -253,6 +254,12 @@ public class NavigationDrawerFragment extends Fragment {
         if (item.getItemId() == R.id.action_example) {
             Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
             return true;
+        }
+
+        switch (item.getItemId()) {
+            case R.id.add_notebook:
+                Toast.makeText(getActivity(), "Coming Soon!", Toast.LENGTH_SHORT).show();
+                break;
         }
 
         return super.onOptionsItemSelected(item);

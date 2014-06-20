@@ -49,11 +49,12 @@ public class BlocNotes extends Activity
         // New NoteFragment
         if(savedInstanceState == null) {
             mNoteFragment = new NoteFragment();
+
             FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.container, mNoteFragment).commit();
+            fragmentManager.beginTransaction().replace(R.id.container, mNoteFragment).addToBackStack(null).commit();
+        }
 
 
-         }
 
 
         // Set up the drawer.

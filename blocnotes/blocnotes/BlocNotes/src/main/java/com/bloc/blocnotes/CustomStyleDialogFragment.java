@@ -16,9 +16,9 @@ public class CustomStyleDialogFragment extends DialogFragment {
         //To do
     }
 
-    @Override
-    public View onCreate(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    //@Override
+    //public View onCreate(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         
-    }
+    //}
 
 }

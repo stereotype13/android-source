@@ -23,6 +23,7 @@ public final class R {
     public static final class id {
         public static final int action_example=0x7f080005;
         public static final int action_settings=0x7f080006;
+        public static final int add_notebook=0x7f080008;
         public static final int container=0x7f080001;
         public static final int drawer_layout=0x7f080000;
         public static final int etEditText1=0x7f080004;

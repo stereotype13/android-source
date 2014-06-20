@@ -2,10 +2,10 @@
 <merger>
 
     <dataSet config="main" >
-        <source path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\assets" />
+        <source path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/assets" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\debug\assets" />
+        <source path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/debug/assets" />
     </dataSet>
 
 </merger>

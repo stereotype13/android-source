@@ -4,5 +4,8 @@
         android:orderInCategory="100"
         android:showAsAction="never" />
 
-
+    <item android:id="@+id/add_notebook"
+        android:title="Add Notebook"
+        android:showAsAction="always"
+        />
 </menu>
