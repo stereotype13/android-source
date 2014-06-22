@@ -149,6 +149,31 @@
                 <dimen name="activity_horizontal_margin" >64dp
                 </dimen>
             </file>
+            <file
+                name="ic_menu_view"
+                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-hdpi/ic_menu_view.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_menu_view"
+                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-mdpi/ic_menu_view.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_menu_view"
+                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-xhdpi/ic_menu_view.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_menu_view"
+                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-xxhdpi/ic_menu_view.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="fragment_custom_style_dialog"
+                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/layout/fragment_custom_style_dialog.xml"
+                qualifiers=""
+                type="layout" />
         </source>
         <source path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/build/res/rs/debug" />
         <source path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/build/res/generated/debug" />

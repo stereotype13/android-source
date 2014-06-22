@@ -12,5 +12,11 @@
         android:title="Erase"
         android:showAsAction="always"
         />
+    <item
+        android:id="@+id/ic_menu_custom_dialog"
+        android:title="Customize"
+        android:showAsAction="always"
+        android:icon="@drawable/ic_menu_view"
+        />
 </menu>
 <!-- From: file:/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/menu/bloc_notes.xml -->

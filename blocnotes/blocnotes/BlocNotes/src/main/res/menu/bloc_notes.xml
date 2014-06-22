@@ -12,4 +12,10 @@
         android:title="Erase"
         android:showAsAction="always"
         />
+    <item
+        android:id="@+id/ic_menu_custom_dialog"
+        android:title="Customize"
+        android:showAsAction="always"
+        android:icon="@drawable/ic_menu_view"
+        />
 </menu>

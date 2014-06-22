@@ -130,6 +130,10 @@ public class BlocNotes extends Activity
                 EditText editText = (EditText)findViewById(R.id.etEditText1);
                 editText.setText("");
                 break;
+            case R.id.ic_menu_custom_dialog:
+                CustomStyleDialogFragment customStyleDialogFragment = new CustomStyleDialogFragment();
+                customStyleDialogFragment.show(getFragmentManager(), "custom_dialog");
+                break;
             default:
         }
         return super.onOptionsItemSelected(item);
@@ -176,5 +180,22 @@ public class BlocNotes extends Activity
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
+
+
+    public void onStyleChange(CustomStyleDialogFragment dialog, int styleId) {
+
+    }
+
+
+    public void onFontChange(CustomStyleDialogFragment dialog, String fontName) {
+
+    }
+
+
+    public void onThemeChange(CustomStyleDialogFragment dialog, int themeId) {
+
+    }
+
+
 
 }

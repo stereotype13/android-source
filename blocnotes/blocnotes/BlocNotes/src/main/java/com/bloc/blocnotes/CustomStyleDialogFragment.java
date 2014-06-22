@@ -16,9 +16,12 @@ public class CustomStyleDialogFragment extends DialogFragment {
         //To do
     }
 
-    //@Override
-    //public View onCreate(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        
-    //}
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_custom_style_dialog, container);
+        getDialog().setTitle("Custom Dialog");
+
+        return view;
+    }
 
 }
