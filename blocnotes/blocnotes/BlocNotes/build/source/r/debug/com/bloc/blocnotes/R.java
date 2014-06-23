@@ -64,5 +64,6 @@ public final class R {
         /**  Customize your theme here. 
          */
         public static final int AppTheme=0x7f070000;
+        public static final int Style1=0x7f070001;
     }
 }

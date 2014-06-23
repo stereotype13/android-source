@@ -36,4 +36,8 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Style1">
+        <item name="android:fontFamily"></item>
+    </style>
+
 </resources>

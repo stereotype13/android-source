@@ -2,7 +2,17 @@
 <merger>
 
     <dataSet config="main" >
-        <source path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/assets" />
+        <source path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/assets" >
+            <file
+                name="fonts/Helvetica_Reg.ttf"
+                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/assets/fonts/Helvetica_Reg.ttf" />
+            <file
+                name="fonts/impact.ttf"
+                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/assets/fonts/impact.ttf" />
+            <file
+                name="fonts/HelveticaNeue_Lt.ttf"
+                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/assets/fonts/HelveticaNeue_Lt.ttf" />
+        </source>
     </dataSet>
     <dataSet config="debug" >
         <source path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/debug/assets" />
