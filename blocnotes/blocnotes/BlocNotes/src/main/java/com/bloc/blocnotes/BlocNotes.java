@@ -48,10 +48,13 @@ public class BlocNotes extends Activity
 
         // New NoteFragment
         if(savedInstanceState == null) {
+
             mNoteFragment = new NoteFragment();
 
-            FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.container, mNoteFragment).addToBackStack(null).commit();
+            getFragmentManager().beginTransaction().replace(R.id.container, mNoteFragment, "note_fragment").addToBackStack(null).commit();
+        } else {
+
+            mNoteFragment = (NoteFragment) getFragmentManager().findFragmentByTag("note_fragment");
         }
 
 
@@ -69,10 +72,11 @@ public class BlocNotes extends Activity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+        Toast.makeText(this, "In onNavigationDrawerItemSelected", Toast.LENGTH_SHORT).show();
+       // FragmentManager fragmentManager = getFragmentManager();
+       // fragmentManager.beginTransaction()
+       //         .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+       //         .commit();
     }
 
     public void onSectionAttached(int number) {

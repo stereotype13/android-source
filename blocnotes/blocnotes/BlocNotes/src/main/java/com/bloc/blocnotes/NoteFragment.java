@@ -15,7 +15,6 @@ import android.widget.Toast;
 public class NoteFragment extends Fragment {
 
     private EditText mEditText;
-    private String mBodyText;
 
     public NoteFragment() {
 
@@ -24,9 +23,11 @@ public class NoteFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if(savedInstanceState != null){
 
-            mBodyText = savedInstanceState.getString("body");
+           // mBodyText = savedInstanceState.getString("body");
+
         }
     }
 
@@ -34,14 +35,14 @@ public class NoteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
         View rootView = inflater.inflate(R.layout.fragment_note, container, false);
+
         mEditText = (EditText) rootView.findViewById(R.id.etEditText1);
 
         if(savedInstanceState != null) {
-            mBodyText = savedInstanceState.getString("body");
-            mEditText.setText(mBodyText);
+
+            mEditText.setText(savedInstanceState.getString("body"));
         }
-        //mEditText.setText(mBodyText);
-        //mEditText.setText("Hello, World!");
+
         return rootView;
     }
 
