@@ -6,8 +6,10 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -37,6 +39,18 @@ public class BlocNotes extends Activity
 
     private NoteFragment mNoteFragment;
 
+    public static class CustomStylePreferenceFragment extends PreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            addPreferencesFromResource(R.xml.preferences);
+        }
+
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +70,8 @@ public class BlocNotes extends Activity
 
             mNoteFragment = (NoteFragment) getFragmentManager().findFragmentByTag("note_fragment");
         }
+
+
 
 
 
@@ -138,6 +154,8 @@ public class BlocNotes extends Activity
                 break;
             case R.id.ic_menu_custom_preferences:
                 Toast.makeText(this, "I clicked action_settings", Toast.LENGTH_SHORT).show();
+                //getFragmentManager().beginTransaction().replace(R.id.container, new CustomStylePreferenceFragment()).commit();
+                //Start new activity that will contain the CustomStylePreferenceFragment
                 getFragmentManager().beginTransaction().replace(R.id.container, new CustomStylePreferenceFragment()).commit();
             default:
         }

@@ -2,12 +2,24 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
-        android:title="test"
+        android:title="Preferences"
         >
-        <CheckBoxPreference
-            android:key="checkbox_preference"
-            android:title="Testing 1 2 3"
-            android:summary="This is a summary"
+
+        <ListPreference
+            android:key="type_face"
+            android:title="Typeface"
+            android:summary="Select the typeface"
+            android:entries="@array/fonts_array"
+            android:entryValues="@array/fonts_array_values"
             />
+
+        <ListPreference
+            android:key="font_size"
+            android:title="Font Size"
+            android:summary="Select the font size"
+            android:entries="@array/font_size"
+            android:entryValues="@array/font_size_values"
+            />
+
     </PreferenceCategory>
 </PreferenceScreen>
