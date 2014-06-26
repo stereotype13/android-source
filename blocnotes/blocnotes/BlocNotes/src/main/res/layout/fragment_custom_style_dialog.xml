@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:text="Small"
             android:layout_weight="1"
+            android:background="@drawable/fancy_button"
             />
 
         <Button
@@ -30,6 +31,7 @@
             android:layout_height="wrap_content"
             android:text="Medium"
             android:layout_weight="1"
+            android:background="@drawable/fancy_button"
             />
 
         <Button
@@ -38,6 +40,7 @@
             android:layout_height="wrap_content"
             android:text="Large"
             android:layout_weight="1"
+            android:background="@drawable/fancy_button"
             />
         </LinearLayout>
 

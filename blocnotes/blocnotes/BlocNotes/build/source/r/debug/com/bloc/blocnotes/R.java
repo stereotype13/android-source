@@ -19,10 +19,14 @@ public final class R {
         public static final int navigation_drawer_width=0x7f050002;
     }
     public static final class drawable {
-        public static final int drawer_shadow=0x7f020000;
-        public static final int ic_drawer=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int ic_menu_view=0x7f020003;
+        public static final int button_default=0x7f020000;
+        public static final int button_disabled=0x7f020001;
+        public static final int button_pressed=0x7f020002;
+        public static final int drawer_shadow=0x7f020003;
+        public static final int fancy_button=0x7f020004;
+        public static final int ic_drawer=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
+        public static final int ic_menu_view=0x7f020007;
     }
     public static final class id {
         public static final int action_example=0x7f090009;
