@@ -29,18 +29,19 @@ public final class R {
         public static final int ic_menu_view=0x7f020007;
     }
     public static final class id {
-        public static final int action_example=0x7f090009;
-        public static final int action_settings=0x7f09000a;
-        public static final int add_notebook=0x7f09000d;
-        public static final int btn_large=0x7f090007;
-        public static final int btn_medium=0x7f090006;
-        public static final int btn_small=0x7f090005;
+        public static final int action_example=0x7f09000a;
+        public static final int action_settings=0x7f09000b;
+        public static final int add_notebook=0x7f09000e;
         public static final int container=0x7f090001;
         public static final int drawer_layout=0x7f090000;
-        public static final int etEditText1=0x7f090008;
-        public static final int ic_menu_custom_dialog=0x7f09000c;
-        public static final int ic_menu_cut=0x7f09000b;
+        public static final int etEditText1=0x7f090009;
+        public static final int ic_menu_custom_dialog=0x7f09000d;
+        public static final int ic_menu_cut=0x7f09000c;
         public static final int navigation_drawer=0x7f090002;
+        public static final int rb_large=0x7f090008;
+        public static final int rb_medium=0x7f090007;
+        public static final int rb_small=0x7f090006;
+        public static final int rg_font_size=0x7f090005;
         public static final int section_label=0x7f090003;
         public static final int spinner_fonts=0x7f090004;
     }
@@ -59,13 +60,16 @@ public final class R {
         public static final int action_example=0x7f060000;
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060002;
-        public static final int navigation_drawer_close=0x7f060003;
-        public static final int navigation_drawer_open=0x7f060004;
-        public static final int title_section1=0x7f060005;
-        public static final int title_section2=0x7f060006;
-        public static final int title_section3=0x7f060007;
-        public static final int title_section4=0x7f060008;
-        public static final int title_section5=0x7f060009;
+        public static final int large=0x7f060003;
+        public static final int medium=0x7f060004;
+        public static final int navigation_drawer_close=0x7f060005;
+        public static final int navigation_drawer_open=0x7f060006;
+        public static final int small=0x7f060007;
+        public static final int title_section1=0x7f060008;
+        public static final int title_section2=0x7f060009;
+        public static final int title_section3=0x7f06000a;
+        public static final int title_section4=0x7f06000b;
+        public static final int title_section5=0x7f06000c;
     }
     public static final class style {
         /**  Customize your theme here. 

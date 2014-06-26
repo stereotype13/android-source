@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 
@@ -38,30 +39,18 @@ public class CustomStyleDialogFragment extends DialogFragment implements Adapter
         //final EditText editText = (EditText) view.findViewById(R.id.etEditText1);
         final EditText editText = (EditText) getActivity().findViewById(R.id.etEditText1);
 
-        Button smallButton = (Button) view.findViewById(R.id.btn_small);
-        smallButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                editText.setTextAppearance(getActivity(), android.R.style.TextAppearance_Small);
-                //editText.setText("Clicked Small");
-            }
-        });
 
-        Button mediumButton = (Button) view.findViewById(R.id.btn_medium);
-        mediumButton.setOnClickListener(new View.OnClickListener() {
+        RadioGroup group = (RadioGroup) view.findViewById(R.id.rg_font_size);
+        group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onClick(View view) {
-                editText.setTextAppearance(getActivity(), android.R.style.TextAppearance_Medium);
-                //editText.setText("Clicked Medium");
-            }
-        });
-
-        Button largeButton = (Button) view.findViewById(R.id.btn_large);
-        largeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                editText.setTextAppearance(getActivity(), android.R.style.TextAppearance_Large);
-               // editText.setText("Clicked Large");
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.rb_small) {
+                    editText.setTextAppearance(getActivity(), android.R.style.TextAppearance_Small);
+                } else if (checkedId == R.id.rb_medium) {
+                    editText.setTextAppearance(getActivity(), android.R.style.TextAppearance_Medium);
+                } else if (checkedId == R.id.rb_large) {
+                    editText.setTextAppearance(getActivity(), android.R.style.TextAppearance_Large);
+                }
             }
         });
 
