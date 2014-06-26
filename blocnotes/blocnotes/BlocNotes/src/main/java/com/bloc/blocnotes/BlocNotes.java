@@ -126,9 +126,7 @@ public class BlocNotes extends Activity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
         switch (id) {
             case R.id.ic_menu_cut:
                 EditText editText = (EditText)findViewById(R.id.etEditText1);
@@ -138,6 +136,9 @@ public class BlocNotes extends Activity
                 CustomStyleDialogFragment customStyleDialogFragment = new CustomStyleDialogFragment();
                 customStyleDialogFragment.show(getFragmentManager(), "custom_dialog");
                 break;
+            case R.id.ic_menu_custom_preferences:
+                Toast.makeText(this, "I clicked action_settings", Toast.LENGTH_SHORT).show();
+                getFragmentManager().beginTransaction().replace(R.id.container, new CustomStylePreferenceFragment()).commit();
             default:
         }
         return super.onOptionsItemSelected(item);
