@@ -2,6 +2,7 @@ package com.bloc.blocnotes;
 
 import android.app.Application;
 import android.content.Context;
+import android.widget.Toast;
 
 import com.bloc.blocnotes.database.BlocNotesDBHelper;
 
@@ -13,6 +14,7 @@ public class BlocNotesApplication extends Application {
 
     @Override
     public void onCreate() {
+        Toast.makeText(this, "In onCreate of BlocNotesApplication. Must've been called automatically", Toast.LENGTH_SHORT).show();
         dbHelper = new BlocNotesDBHelper(getApplicationContext());
     }
 

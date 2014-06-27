@@ -3,6 +3,7 @@
     package="com.bloc.blocnotes" >
 
     <application
+        android:name="com.bloc.blocnotes.BlocNotesApplication"
         android:debuggable="true"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -18,5 +19,6 @@
             </intent-filter>
         </activity>
     </application>
+   
 
 </manifest>
