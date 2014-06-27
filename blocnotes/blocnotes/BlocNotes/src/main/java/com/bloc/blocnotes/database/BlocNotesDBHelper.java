@@ -1,5 +1,6 @@
 package com.bloc.blocnotes.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -40,6 +41,9 @@ public class BlocNotesDBHelper extends SQLiteOpenHelper {
             sqLiteDatabase.execSQL(tables.next().getCreateStatement());
         }
 
+        ContentValues values = new ContentValues();
+        values.put("NAME", "Uncategorized");
+        long NotebookID = sqLiteDatabase.insert("Notebooks", null, values);
         
     }
 
