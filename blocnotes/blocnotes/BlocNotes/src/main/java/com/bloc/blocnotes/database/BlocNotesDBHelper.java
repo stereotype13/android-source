@@ -41,6 +41,7 @@ public class BlocNotesDBHelper extends SQLiteOpenHelper {
             sqLiteDatabase.execSQL(tables.next().getCreateStatement());
         }
 
+        //Create a default notebook called 'Uncategorized' to hold uncategorized notes.
         ContentValues values = new ContentValues();
         values.put("NAME", "Uncategorized");
         long NotebookID = sqLiteDatabase.insert("Notebooks", null, values);

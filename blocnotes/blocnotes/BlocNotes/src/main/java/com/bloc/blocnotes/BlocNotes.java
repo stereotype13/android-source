@@ -54,6 +54,7 @@ public class BlocNotes extends Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //BlocNotesApplication.get(this).getBlocNotesDBHelper()
         setContentView(R.layout.activity_bloc_notes);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
@@ -70,11 +71,6 @@ public class BlocNotes extends Activity
 
             mNoteFragment = (NoteFragment) getFragmentManager().findFragmentByTag("note_fragment");
         }
-
-
-
-
-
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
