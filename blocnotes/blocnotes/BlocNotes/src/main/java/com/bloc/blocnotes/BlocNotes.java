@@ -156,7 +156,7 @@ public class BlocNotes extends Activity
                 Toast.makeText(this, "I clicked action_settings", Toast.LENGTH_SHORT).show();
                 //getFragmentManager().beginTransaction().replace(R.id.container, new CustomStylePreferenceFragment()).commit();
                 //Start new activity that will contain the CustomStylePreferenceFragment
-                getFragmentManager().beginTransaction().replace(R.id.container, new CustomStylePreferenceFragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.container, new CustomStylePreferenceFragment()).addToBackStack(null).commit();
             default:
         }
         return super.onOptionsItemSelected(item);

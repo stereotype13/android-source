@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/C:/Users/rhodel/Documents/bloc/android/blocnotes/blocnotes/BlocNotes/src/main/res/values/arrays.xml -->
+    <!-- From: file:/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/values/arrays.xml -->
     <eat-comment />
 
     <string-array name="font_size">
@@ -10,9 +10,9 @@
         <item>Large</item>
     </string-array>
     <string-array name="font_size_values">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
+        <item>10</item>
+        <item>25</item>
+        <item>50</item>
     </string-array>
     <string-array name="fonts_array">
         <item>System font</item>
@@ -21,18 +21,18 @@
         <item>Impact</item>
     </string-array>
     <string-array name="fonts_array_values">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
+        <item>default</item>
+        <item>fonts/Helvetica_Reg.ttf</item>
+        <item>fonts/HelveticaNeue_Lt.ttf</item>
+        <item>fonts/impact.ttf</item>
     </string-array>
-    <!-- From: file:/C:/Users/rhodel/Documents/bloc/android/blocnotes/blocnotes/BlocNotes/src/main/res/values/dimens.xml -->
+    <!-- From: file:/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/values/dimens.xml -->
     <eat-comment />
 
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="navigation_drawer_width">240dp</dimen>
-    <!-- From: file:/C:/Users/rhodel/Documents/bloc/android/blocnotes/blocnotes/BlocNotes/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/values/strings.xml -->
     <eat-comment />
 
     <string name="action_example">Example action</string>
@@ -48,7 +48,7 @@
     <string name="title_section3">Section 3</string>
     <string name="title_section4">Hello</string>
     <string name="title_section5">World</string>
-    <!-- From: file:/C:/Users/rhodel/Documents/bloc/android/blocnotes/blocnotes/BlocNotes/src/main/res/values/styles.xml -->
+    <!-- From: file:/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/values/styles.xml -->
     <eat-comment />
 
     <style name="AppTheme" parent="android:Theme.Holo.Light">
