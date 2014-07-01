@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 public class NotesTable extends Table {
 
     private static final String SQL_CREATE_NOTES =
-            "CREATE TABLE Notebooks (" +
+            "CREATE TABLE Notes (" +
                     "_id INTEGER PRIMARY KEY," +
                     "BODY TEXT," +
                     "NOTEBOOK_ID INTEGER" +

@@ -4,6 +4,7 @@ package com.bloc.blocnotes;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.database.Cursor;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -22,6 +23,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.bloc.blocnotes.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -98,18 +102,26 @@ public class NavigationDrawerFragment extends Fragment {
                 selectItem(position);
             }
         });
-        mDrawerListView.setAdapter(new ArrayAdapter<String>(
+
+        Cursor cursor = BlocNotesApplication.getBlocNotesDBHelper().getReadableDatabase().rawQuery("SELECT * FROM NOTEBOOKS", null);
+
+
+
+        List<Notebook> notebookList = new ArrayList<Notebook>();
+
+        while(cursor.moveToNext()){
+            notebookList.add(new Notebook(cursor.getInt(cursor.getColumnIndex("_id")), cursor.getString(cursor.getColumnIndex("NAME"))));
+
+        }
+        cursor.close();
+
+        mDrawerListView.setAdapter(new ArrayAdapter<Notebook>(
                 getActionBar().getThemedContext(),
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
-                new String[]{
-                        getString(R.string.title_section1),
-                        getString(R.string.title_section2),
-                        getString(R.string.title_section3),
-                        "Hello",
-                        "World",
+                notebookList
 
-                }));
+                ));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
     }

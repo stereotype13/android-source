@@ -10,7 +10,7 @@ public class NotebooksTable extends Table {
     private static final String SQL_CREATE_NOTEBOOKS =
             "CREATE TABLE Notebooks (" +
                     "_id INTEGER PRIMARY KEY," +
-                    "NAME TEXT," +
+                    "NAME TEXT" +
                     " )";
 
     public NotebooksTable(String name) {

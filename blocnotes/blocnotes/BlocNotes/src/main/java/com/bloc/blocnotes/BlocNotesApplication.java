@@ -10,7 +10,7 @@ import com.bloc.blocnotes.database.BlocNotesDBHelper;
  * Created by rhodel on 6/27/2014.
  */
 public class BlocNotesApplication extends Application {
-    private BlocNotesDBHelper dbHelper;
+    private static BlocNotesDBHelper dbHelper;
 
     @Override
     public void onCreate() {
@@ -22,7 +22,7 @@ public class BlocNotesApplication extends Application {
         return (BlocNotesApplication) context.getApplicationContext();
     }
 
-    public BlocNotesDBHelper getBlocNotesDBHelper() {
+    public static BlocNotesDBHelper getBlocNotesDBHelper() {
         return dbHelper;
     }
 }
