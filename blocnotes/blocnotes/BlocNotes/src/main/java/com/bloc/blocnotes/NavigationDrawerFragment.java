@@ -63,12 +63,25 @@ public class NavigationDrawerFragment extends Fragment {
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
 
+    private List<Notebook> notebookList;
+    private Cursor cursor;
+
     public NavigationDrawerFragment() {
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        cursor = BlocNotesApplication.getBlocNotesDBHelper().getReadableDatabase().rawQuery("SELECT * FROM NOTEBOOKS", null);
+
+        notebookList = new ArrayList<Notebook>();
+
+        while(cursor.moveToNext()){
+            notebookList.add(new Notebook(cursor.getInt(cursor.getColumnIndex("_id")), cursor.getString(cursor.getColumnIndex("NAME"))));
+
+        }
+        cursor.close();
 
         // Read in the flag indicating whether or not the user has demonstrated awareness of the
         // drawer. See PREF_USER_LEARNED_DRAWER for details.
@@ -96,6 +109,7 @@ public class NavigationDrawerFragment extends Fragment {
             Bundle savedInstanceState) {
         mDrawerListView = (ListView) inflater.inflate(
                 R.layout.fragment_navigation_drawer, container, false);
+
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -103,17 +117,6 @@ public class NavigationDrawerFragment extends Fragment {
             }
         });
 
-        Cursor cursor = BlocNotesApplication.getBlocNotesDBHelper().getReadableDatabase().rawQuery("SELECT * FROM NOTEBOOKS", null);
-
-
-
-        List<Notebook> notebookList = new ArrayList<Notebook>();
-
-        while(cursor.moveToNext()){
-            notebookList.add(new Notebook(cursor.getInt(cursor.getColumnIndex("_id")), cursor.getString(cursor.getColumnIndex("NAME"))));
-
-        }
-        cursor.close();
 
         mDrawerListView.setAdapter(new ArrayAdapter<Notebook>(
                 getActionBar().getThemedContext(),
@@ -124,6 +127,17 @@ public class NavigationDrawerFragment extends Fragment {
                 ));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
+    }
+
+    public Notebook getNotebookFromPosition(int position) {
+
+        if(notebookList.get(position) == null) {
+            return new Notebook();
+        }
+        else {
+            return notebookList.get(position);
+        }
+
     }
 
     public boolean isDrawerOpen() {
@@ -259,6 +273,7 @@ public class NavigationDrawerFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }

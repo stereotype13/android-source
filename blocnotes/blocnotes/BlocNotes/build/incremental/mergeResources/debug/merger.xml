@@ -2,179 +2,179 @@
 <merger>
 
     <dataSet config="main" >
-        <source path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res" >
+        <source path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res" >
             <file
                 name="fancy_button"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable/fancy_button.xml"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable\fancy_button.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="button_default"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-hdpi/button_default.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-hdpi\button_default.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="button_disabled"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-hdpi/button_disabled.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-hdpi\button_disabled.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="button_pressed"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-hdpi/button_pressed.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-hdpi\button_pressed.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="drawer_shadow"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-hdpi/drawer_shadow.9.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-hdpi\drawer_shadow.9.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="ic_drawer"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-hdpi/ic_drawer.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-hdpi\ic_drawer.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-hdpi/ic_launcher.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-hdpi\ic_launcher.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="ic_menu_view"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-hdpi/ic_menu_view.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-hdpi\ic_menu_view.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
                 name="button_default"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-mdpi/button_default.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-mdpi\button_default.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="button_disabled"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-mdpi/button_disabled.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-mdpi\button_disabled.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="button_pressed"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-mdpi/button_pressed.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-mdpi\button_pressed.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="drawer_shadow"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-mdpi/drawer_shadow.9.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-mdpi\drawer_shadow.9.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="ic_drawer"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-mdpi/ic_drawer.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-mdpi\ic_drawer.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-mdpi/ic_launcher.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-mdpi\ic_launcher.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="ic_menu_view"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-mdpi/ic_menu_view.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-mdpi\ic_menu_view.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
                 name="button_default"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-xhdpi/button_default.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-xhdpi\button_default.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="button_disabled"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-xhdpi/button_disabled.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-xhdpi\button_disabled.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="button_pressed"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-xhdpi/button_pressed.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-xhdpi\button_pressed.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="drawer_shadow"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-xhdpi/drawer_shadow.9.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-xhdpi\drawer_shadow.9.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="ic_drawer"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-xhdpi/ic_drawer.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-xhdpi\ic_drawer.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-xhdpi/ic_launcher.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-xhdpi\ic_launcher.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="ic_menu_view"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-xhdpi/ic_menu_view.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-xhdpi\ic_menu_view.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
                 name="drawer_shadow"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-xxhdpi/drawer_shadow.9.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-xxhdpi\drawer_shadow.9.png"
                 qualifiers="xxhdpi"
                 type="drawable" />
             <file
                 name="ic_drawer"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-xxhdpi/ic_drawer.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-xxhdpi\ic_drawer.png"
                 qualifiers="xxhdpi"
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-xxhdpi/ic_launcher.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-xxhdpi\ic_launcher.png"
                 qualifiers="xxhdpi"
                 type="drawable" />
             <file
                 name="ic_menu_view"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/drawable-xxhdpi/ic_menu_view.png"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-xxhdpi\ic_menu_view.png"
                 qualifiers="xxhdpi"
                 type="drawable" />
             <file
                 name="activity_bloc_notes"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/layout/activity_bloc_notes.xml"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\layout\activity_bloc_notes.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="fragment_bloc_notes"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/layout/fragment_bloc_notes.xml"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\layout\fragment_bloc_notes.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="fragment_custom_style_dialog"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/layout/fragment_custom_style_dialog.xml"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\layout\fragment_custom_style_dialog.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="fragment_navigation_drawer"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/layout/fragment_navigation_drawer.xml"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\layout\fragment_navigation_drawer.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="fragment_note"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/layout/fragment_note.xml"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\layout\fragment_note.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="fragment_note"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/layout-land/fragment_note.xml"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\layout-land\fragment_note.xml"
                 qualifiers="land"
                 type="layout" />
             <file
                 name="bloc_notes"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/menu/bloc_notes.xml"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\menu\bloc_notes.xml"
                 qualifiers=""
                 type="menu" />
             <file
                 name="global"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/menu/global.xml"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\menu\global.xml"
                 qualifiers=""
                 type="menu" />
             <file
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/values/arrays.xml"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\values\arrays.xml"
                 qualifiers="" >
                 <string-array name="fonts_array" >
                     <item>
@@ -228,7 +228,7 @@ fonts/impact.ttf
                 </string-array>
             </file>
             <file
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/values/dimens.xml"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\values\dimens.xml"
                 qualifiers="" >
                 <dimen name="activity_vertical_margin" >16dp
                 </dimen>
@@ -238,7 +238,7 @@ fonts/impact.ttf
                 </dimen>
             </file>
             <file
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/values/strings.xml"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\values\strings.xml"
                 qualifiers="" >
                 <string name="medium" >Medium
                 </string>
@@ -268,7 +268,7 @@ fonts/impact.ttf
                 </string>
             </file>
             <file
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/values/styles.xml"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\values\styles.xml"
                 qualifiers="" >
 
                 <style name="Style1" >
@@ -284,22 +284,22 @@ fonts/impact.ttf
                 </style>
             </file>
             <file
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/values-w820dp/dimens.xml"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\values-w820dp\dimens.xml"
                 qualifiers="w820dp" >
                 <dimen name="activity_horizontal_margin" >64dp
                 </dimen>
             </file>
             <file
                 name="preferences"
-                path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/res/xml/preferences.xml"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\xml\preferences.xml"
                 qualifiers=""
                 type="xml" />
         </source>
-        <source path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/build/res/rs/debug" />
-        <source path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/build/res/generated/debug" />
+        <source path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\build\res\rs\debug" />
+        <source path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\build\res\generated\debug" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/debug/res" />
+        <source path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\debug\res" />
     </dataSet>
 
 </merger>

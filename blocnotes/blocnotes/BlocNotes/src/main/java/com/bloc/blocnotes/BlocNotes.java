@@ -83,12 +83,18 @@ public class BlocNotes extends Activity
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
+
+        Toast.makeText(this, Integer.toString(position) + " is the position", Toast.LENGTH_SHORT).show();
+        Notebook notebook = mNavigationDrawerFragment.getNotebookFromPosition(position);
+        Toast.makeText(this, notebook.toString(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, position, Toast.LENGTH_SHORT).show();
         // update the main content by replacing fragments
-        Toast.makeText(this, "In onNavigationDrawerItemSelected", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, mNavigationDrawerFragment.getNotebookFromPosition(position).toString(), Toast.LENGTH_SHORT).show();
        // FragmentManager fragmentManager = getFragmentManager();
        // fragmentManager.beginTransaction()
        //         .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
        //         .commit();
+
     }
 
     public void onSectionAttached(int number) {
