@@ -9,7 +9,7 @@ public class NotesTable extends Table {
 
     private static final String SQL_CREATE_NOTES =
             "CREATE TABLE Notes (" +
-                    "_id INTEGER PRIMARY KEY," +
+                    "_id INTEGER PRIMARY KEY autoincrement," +
                     "BODY TEXT," +
                     "NOTEBOOK_ID INTEGER" +
                     " )";

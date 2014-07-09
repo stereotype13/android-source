@@ -7,6 +7,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
@@ -23,14 +24,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class BlocNotes extends Activity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, NewNotebookDialog.OnNewNotebookListener {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
+    private NotebookFragment mNotebookFragment;
 
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
@@ -38,6 +43,15 @@ public class BlocNotes extends Activity
     private CharSequence mTitle;
 
     private NoteFragment mNoteFragment;
+
+    @Override
+    public void onNewNotebook() {
+        Toast.makeText(this, "on new notebook", Toast.LENGTH_SHORT).show();
+
+        if(mNavigationDrawerFragment != null) {
+            mNavigationDrawerFragment.refresh();
+        }
+    }
 
     public static class CustomStylePreferenceFragment extends PreferenceFragment {
 
@@ -85,15 +99,32 @@ public class BlocNotes extends Activity
     public void onNavigationDrawerItemSelected(int position) {
 
         Toast.makeText(this, Integer.toString(position) + " is the position", Toast.LENGTH_SHORT).show();
-        Notebook notebook = mNavigationDrawerFragment.getNotebookFromPosition(position);
-        Toast.makeText(this, notebook.toString(), Toast.LENGTH_SHORT).show();
+        Notebook notebook = new Notebook(2, "Some other notebook");
+
+
+        if(mNavigationDrawerFragment != null) {
+            notebook = mNavigationDrawerFragment.getNotebookFromPosition(position);
+            Toast.makeText(this, notebook.toString(), Toast.LENGTH_SHORT).show();
+
+            mNotebookFragment = new NotebookFragment(notebook);
+
+
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, mNotebookFragment)
+                    .addToBackStack(null)
+                    .commit();
+
+        }
+
+        //Toast.makeText(this, notebook.toString(), Toast.LENGTH_SHORT).show();
         //Toast.makeText(this, position, Toast.LENGTH_SHORT).show();
         // update the main content by replacing fragments
         //Toast.makeText(this, mNavigationDrawerFragment.getNotebookFromPosition(position).toString(), Toast.LENGTH_SHORT).show();
-       // FragmentManager fragmentManager = getFragmentManager();
-       // fragmentManager.beginTransaction()
-       //         .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-       //         .commit();
+       /* FragmentManager fragmentManager = getFragmentManager();
+       fragmentManager.beginTransaction()
+                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                .commit();*/
 
     }
 

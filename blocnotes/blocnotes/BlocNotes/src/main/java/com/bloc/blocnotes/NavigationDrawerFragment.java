@@ -4,8 +4,12 @@ package com.bloc.blocnotes;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.content.SharedPreferences;
@@ -33,6 +37,8 @@ import java.util.List;
  * design guidelines</a> for a complete explanation of the behaviors implemented here.
  */
 public class NavigationDrawerFragment extends Fragment {
+
+
 
     /**
      * Remember the position of the selected item.
@@ -62,6 +68,7 @@ public class NavigationDrawerFragment extends Fragment {
     private int mCurrentSelectedPosition = 0;
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
+    private NewNotebookDialog mNewNotebookDialog;
 
     private List<Notebook> notebookList;
     private Cursor cursor;
@@ -69,10 +76,9 @@ public class NavigationDrawerFragment extends Fragment {
     public NavigationDrawerFragment() {
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    private ArrayAdapter<Notebook> ad;
 
+    public void refresh() {
         cursor = BlocNotesApplication.getBlocNotesDBHelper().getReadableDatabase().rawQuery("SELECT * FROM NOTEBOOKS", null);
 
         notebookList = new ArrayList<Notebook>();
@@ -83,6 +89,41 @@ public class NavigationDrawerFragment extends Fragment {
         }
         cursor.close();
 
+        if(ad != null) {
+
+            if(!ad.isEmpty()) {
+                ad.clear();
+            }
+
+            ad.addAll(notebookList);
+            ad.notifyDataSetChanged();
+        }
+        else {
+            ad = new ArrayAdapter<Notebook>(
+                    getActionBar().getThemedContext(),
+                    android.R.layout.simple_list_item_activated_1,
+                    android.R.id.text1,
+                    notebookList
+
+            );
+
+            if(mDrawerListView != null) {
+                mDrawerListView.invalidateViews();
+            }
+
+        }
+
+
+    }
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mNewNotebookDialog = new NewNotebookDialog();
+        //mNewNotebookDialog.setOn
+        refresh();
         // Read in the flag indicating whether or not the user has demonstrated awareness of the
         // drawer. See PREF_USER_LEARNED_DRAWER for details.
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -115,16 +156,14 @@ public class NavigationDrawerFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectItem(position);
             }
+
+
         });
 
+        refresh();
+        mDrawerListView.setAdapter(ad);
+        mDrawerListView.invalidateViews();
 
-        mDrawerListView.setAdapter(new ArrayAdapter<Notebook>(
-                getActionBar().getThemedContext(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                notebookList
-
-                ));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
     }
@@ -132,7 +171,10 @@ public class NavigationDrawerFragment extends Fragment {
     public Notebook getNotebookFromPosition(int position) {
 
         if(notebookList.get(position) == null) {
-            return new Notebook();
+            Notebook notebook = new Notebook(2, "Some notebook");
+            //Notebook notebook = new Notebook();
+
+            return notebook;
         }
         else {
             return notebookList.get(position);
@@ -196,6 +238,10 @@ public class NavigationDrawerFragment extends Fragment {
                             .getDefaultSharedPreferences(getActivity());
                     sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).apply();
                 }
+
+               // Toast.makeText(getActivity(), "About to refresh notebook list", Toast.LENGTH_SHORT).show();
+                refresh();
+
 
                 getActivity().invalidateOptionsMenu(); // calls onPrepareOptionsMenu()
             }
@@ -285,7 +331,25 @@ public class NavigationDrawerFragment extends Fragment {
 
         switch (item.getItemId()) {
             case R.id.add_notebook:
-                Toast.makeText(getActivity(), "Coming Soon!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Coming Soon!", Toast.LENGTH_SHORT).show();
+                //getFragmentManager().executePendingTransactions();
+                //getFragmentManager().beginTransaction().replace(R.id.container, new NewNotebookDialog()).addToBackStack(null).commit();
+
+
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+
+                Fragment prev = getFragmentManager().findFragmentByTag("fragment_new_notebook_dialog");
+                if (prev != null) {
+                    ft.remove(prev);
+                }
+                ft.addToBackStack(null);
+
+                mNewNotebookDialog.show(ft, "fragment_new_notebook_dialog");
+                Toast.makeText(getActivity(), "Just closed the dialog", Toast.LENGTH_SHORT).show();
+                refresh();
+                mDrawerListView.setAdapter(ad);
+                mDrawerListView.invalidateViews();
+
                 break;
         }
 

@@ -75,9 +75,6 @@ public class CustomStyleDialogFragment extends DialogFragment implements Adapter
         String text_size = prefs.getString("font_size", "25");
         tf = Typeface.DEFAULT;
 
-
-        Toast.makeText(getActivity(), "The number of the typeface is AA" + type_face, Toast.LENGTH_SHORT).show();
-
         //Set the typeface
         if(type_face.equals("default")) {
             tf = Typeface.DEFAULT;

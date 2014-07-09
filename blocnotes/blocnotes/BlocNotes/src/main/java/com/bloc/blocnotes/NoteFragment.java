@@ -47,8 +47,6 @@ public class NoteFragment extends Fragment {
         Typeface tf = Typeface.DEFAULT;
 
 
-        Toast.makeText(getActivity(), "The number of the typeface is " + type_face, Toast.LENGTH_SHORT).show();
-
         //Set the typeface
         if(type_face.equals("default")) {
             tf = Typeface.DEFAULT;
@@ -84,7 +82,13 @@ public class NoteFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString("body", mEditText.getText().toString());
+
+        if(mEditText != null) {
+
+            outState.putString("body", mEditText.getText().toString());
+
+        }
+
 
 
 

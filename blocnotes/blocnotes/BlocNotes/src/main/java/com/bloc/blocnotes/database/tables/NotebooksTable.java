@@ -9,7 +9,7 @@ public class NotebooksTable extends Table {
 
     private static final String SQL_CREATE_NOTEBOOKS =
             "CREATE TABLE Notebooks (" +
-                    "_id INTEGER PRIMARY KEY," +
+                    "_id INTEGER PRIMARY KEY autoincrement," +
                     "NAME TEXT" +
                     " )";
 

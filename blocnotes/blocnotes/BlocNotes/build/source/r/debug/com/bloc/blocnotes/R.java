@@ -32,29 +32,35 @@ public final class R {
         public static final int ic_menu_view=0x7f020007;
     }
     public static final class id {
-        public static final int action_example=0x7f0a000a;
-        public static final int action_settings_global=0x7f0a000e;
-        public static final int add_notebook=0x7f0a000f;
+        public static final int action_example=0x7f0a000e;
+        public static final int action_settings_global=0x7f0a0012;
+        public static final int add_notebook=0x7f0a0013;
+        public static final int buttonNewNotebookOK=0x7f0a000b;
         public static final int container=0x7f0a0001;
         public static final int drawer_layout=0x7f0a0000;
-        public static final int etEditText1=0x7f0a0009;
-        public static final int ic_menu_custom_dialog=0x7f0a000c;
-        public static final int ic_menu_custom_preferences=0x7f0a000d;
-        public static final int ic_menu_cut=0x7f0a000b;
+        public static final int etEditText1=0x7f0a000c;
+        public static final int etNewNotebookName=0x7f0a000a;
+        public static final int ic_menu_custom_dialog=0x7f0a0010;
+        public static final int ic_menu_custom_preferences=0x7f0a0011;
+        public static final int ic_menu_cut=0x7f0a000f;
         public static final int navigation_drawer=0x7f0a0002;
+        public static final int notesListView=0x7f0a000d;
         public static final int rb_large=0x7f0a0008;
         public static final int rb_medium=0x7f0a0007;
         public static final int rb_small=0x7f0a0006;
         public static final int rg_font_size=0x7f0a0005;
         public static final int section_label=0x7f0a0003;
         public static final int spinner_fonts=0x7f0a0004;
+        public static final int textView=0x7f0a0009;
     }
     public static final class layout {
         public static final int activity_bloc_notes=0x7f030000;
         public static final int fragment_bloc_notes=0x7f030001;
         public static final int fragment_custom_style_dialog=0x7f030002;
         public static final int fragment_navigation_drawer=0x7f030003;
-        public static final int fragment_note=0x7f030004;
+        public static final int fragment_new_notebook_dialog=0x7f030004;
+        public static final int fragment_note=0x7f030005;
+        public static final int fragment_notebook=0x7f030006;
     }
     public static final class menu {
         public static final int bloc_notes=0x7f090000;
