@@ -69,6 +69,7 @@ public class NavigationDrawerFragment extends Fragment {
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
     private NewNotebookDialog mNewNotebookDialog;
+    private NotebookCenter mNotebookCenter;
 
     private List<Notebook> notebookList;
     private Cursor cursor;
@@ -79,15 +80,9 @@ public class NavigationDrawerFragment extends Fragment {
     private ArrayAdapter<Notebook> ad;
 
     public void refresh() {
-        cursor = BlocNotesApplication.getBlocNotesDBHelper().getReadableDatabase().rawQuery("SELECT * FROM NOTEBOOKS", null);
 
-        notebookList = new ArrayList<Notebook>();
-
-        while(cursor.moveToNext()){
-            notebookList.add(new Notebook(cursor.getInt(cursor.getColumnIndex("_id")), cursor.getString(cursor.getColumnIndex("NAME"))));
-
-        }
-        cursor.close();
+        mNotebookCenter.fill();
+        notebookList = mNotebookCenter.notebooks;
 
         if(ad != null) {
 
@@ -95,7 +90,7 @@ public class NavigationDrawerFragment extends Fragment {
                 ad.clear();
             }
 
-            ad.addAll(notebookList);
+            ad.addAll(mNotebookCenter.notebooks);
             ad.notifyDataSetChanged();
         }
         else {
@@ -103,7 +98,7 @@ public class NavigationDrawerFragment extends Fragment {
                     getActionBar().getThemedContext(),
                     android.R.layout.simple_list_item_activated_1,
                     android.R.id.text1,
-                    notebookList
+                    mNotebookCenter.notebooks
 
             );
 
@@ -120,6 +115,8 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mNotebookCenter = new NotebookCenter();
 
         mNewNotebookDialog = new NewNotebookDialog();
         //mNewNotebookDialog.setOn
@@ -345,7 +342,7 @@ public class NavigationDrawerFragment extends Fragment {
                 ft.addToBackStack(null);
 
                 mNewNotebookDialog.show(ft, "fragment_new_notebook_dialog");
-                Toast.makeText(getActivity(), "Just closed the dialog", Toast.LENGTH_SHORT).show();
+
                 refresh();
                 mDrawerListView.setAdapter(ad);
                 mDrawerListView.invalidateViews();

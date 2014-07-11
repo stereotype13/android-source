@@ -62,24 +62,15 @@ public class NotebookFragment extends Fragment {
 
     public void setNotes(Notebook notebook) {
 
-        Cursor cursor = BlocNotesApplication.getBlocNotesDBHelper().getReadableDatabase().rawQuery("SELECT * FROM Notes WHERE NOTEBOOK_ID = " + notebook.getId(), null);
-        mNoteList = new ArrayList<Note>();
-
-        while(cursor.moveToNext()){
-            mNoteList.add(new Note(cursor.getInt(cursor.getColumnIndex("_id")), cursor.getInt(cursor.getColumnIndex("NOTEBOOK_ID")), cursor.getString(cursor.getColumnIndex("BODY"))));
-
-        }
-        cursor.close();
-
         //add a test Note
-        mNoteList.add(new Note(1, mNotebook, "This is a test note"));
-        mNoteList.add(new Note(2, mNotebook, "This is another test note. This will be a very long note. When in the course of human events it becomes necessary..."));
+        //mNoteList.add(new Note(1, mNotebook, "This is a test note"));
+        //mNoteList.add(new Note(2, mNotebook, "This is another test note. This will be a very long note. When in the course of human events it becomes necessary..."));
 
         mNotesListView.setAdapter(new ArrayAdapter<Note>(
                 getActivity(),
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
-                mNoteList
+                mNotebook.notes
         ));
 
     }

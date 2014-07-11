@@ -55,6 +55,7 @@ public class NewNotebookDialog extends DialogFragment {
 
         mEditText = (EditText) rootView.findViewById(R.id.etNewNotebookName);
 
+
         mOKButton = (Button) rootView.findViewById(R.id.buttonNewNotebookOK);
 
 
