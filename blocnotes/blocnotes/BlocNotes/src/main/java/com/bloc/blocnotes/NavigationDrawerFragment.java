@@ -71,18 +71,18 @@ public class NavigationDrawerFragment extends Fragment {
     private NewNotebookDialog mNewNotebookDialog;
     private NotebookCenter mNotebookCenter;
 
-    private List<Notebook> notebookList;
+    private List<Notebook> mNotebookList;
     private Cursor cursor;
 
     public NavigationDrawerFragment() {
     }
 
-    private ArrayAdapter<Notebook> ad;
+    private ArrayAdapter<Notebook> mArrayAdapter;
 
     public void refresh() {
 
-        mNotebookCenter.fill();
-        notebookList = mNotebookCenter.notebooks;
+        //mNotebookCenter.fill();
+        /*notebookList = mNotebookCenter.notebooks;
 
         if(ad != null) {
 
@@ -106,7 +106,7 @@ public class NavigationDrawerFragment extends Fragment {
                 mDrawerListView.invalidateViews();
             }
 
-        }
+        }*/
 
 
     }
@@ -116,11 +116,10 @@ public class NavigationDrawerFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mNotebookCenter = new NotebookCenter();
+        BlocNotesApplication.showMessage("in onCreate navigationDrawer");
 
         mNewNotebookDialog = new NewNotebookDialog();
-        //mNewNotebookDialog.setOn
-        refresh();
+
         // Read in the flag indicating whether or not the user has demonstrated awareness of the
         // drawer. See PREF_USER_LEARNED_DRAWER for details.
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -142,9 +141,46 @@ public class NavigationDrawerFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
+    public void refreshListView() {
+
+        List<Notebook> notebookList = NotebookCenter.getInstance(getActivity()).notebooks;
+
+        if(notebookList == null) {
+            return;
+        }
+
+        if(mDrawerListView != null && !notebookList.isEmpty()) {
+
+            if(mArrayAdapter != null) {
+
+                if(!mArrayAdapter.isEmpty()) {
+                    mArrayAdapter.clear();
+                }
+
+                mArrayAdapter.addAll(notebookList);
+            }
+            else
+            {
+                mArrayAdapter = new ArrayAdapter<Notebook>(
+                        getActionBar().getThemedContext(),
+                        android.R.layout.simple_list_item_activated_1,
+                        android.R.id.text1,
+                        notebookList);
+            }
+
+            BlocNotesApplication.showMessage("refreshing the DrawerListView and setting the adapter");
+            mDrawerListView.setAdapter(mArrayAdapter);
+            mDrawerListView.invalidateViews();
+
+        }
+
+
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
+        BlocNotesApplication.showMessage("In NavigationDrawerFragment onCreateView");
         mDrawerListView = (ListView) inflater.inflate(
                 R.layout.fragment_navigation_drawer, container, false);
 
@@ -157,26 +193,22 @@ public class NavigationDrawerFragment extends Fragment {
 
         });
 
-        refresh();
-        mDrawerListView.setAdapter(ad);
-        mDrawerListView.invalidateViews();
+        /*NotebookCenter tempCenter = NotebookCenter.getInstance(getActivity());
+
+
+        mArrayAdapter = new ArrayAdapter<Notebook>(
+                getActionBar().getThemedContext(),
+                android.R.layout.simple_list_item_activated_1,
+                android.R.id.text1,
+                tempCenter.notebooks);*/
+
+
+        //mDrawerListView.setAdapter(mArrayAdapter);
+
+        refreshListView();
 
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
-    }
-
-    public Notebook getNotebookFromPosition(int position) {
-
-        if(notebookList.get(position) == null) {
-            Notebook notebook = new Notebook(2, "Some notebook");
-            //Notebook notebook = new Notebook();
-
-            return notebook;
-        }
-        else {
-            return notebookList.get(position);
-        }
-
     }
 
     public boolean isDrawerOpen() {
@@ -236,8 +268,8 @@ public class NavigationDrawerFragment extends Fragment {
                     sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).apply();
                 }
 
-               // Toast.makeText(getActivity(), "About to refresh notebook list", Toast.LENGTH_SHORT).show();
-                refresh();
+               BlocNotesApplication.showMessage("Hello, World!!!! Hi!");
+
 
 
                 getActivity().invalidateOptionsMenu(); // calls onPrepareOptionsMenu()
@@ -343,10 +375,6 @@ public class NavigationDrawerFragment extends Fragment {
 
                 mNewNotebookDialog.show(ft, "fragment_new_notebook_dialog");
 
-                refresh();
-                mDrawerListView.setAdapter(ad);
-                mDrawerListView.invalidateViews();
-
                 break;
         }
 
@@ -362,6 +390,16 @@ public class NavigationDrawerFragment extends Fragment {
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setTitle(R.string.app_name);
+    }
+
+    public Notebook getNotebookFromPosition(int position) {
+
+        if(mDrawerListView != null) {
+            return (Notebook)mDrawerListView.getAdapter().getItem(position);
+        }
+
+        return null;
+
     }
 
     private ActionBar getActionBar() {

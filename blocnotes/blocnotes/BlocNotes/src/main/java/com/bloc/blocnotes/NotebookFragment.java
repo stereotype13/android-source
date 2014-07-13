@@ -65,13 +65,15 @@ public class NotebookFragment extends Fragment {
         //add a test Note
         //mNoteList.add(new Note(1, mNotebook, "This is a test note"));
         //mNoteList.add(new Note(2, mNotebook, "This is another test note. This will be a very long note. When in the course of human events it becomes necessary..."));
+        if( mNotesListView != null) {
+            mNotesListView.setAdapter(new ArrayAdapter<Note>(
+                    getActivity(),
+                    android.R.layout.simple_list_item_activated_1,
+                    android.R.id.text1,
+                    mNotebook.notes));
+        }
 
-        mNotesListView.setAdapter(new ArrayAdapter<Note>(
-                getActivity(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                mNotebook.notes
-        ));
+
 
     }
 }

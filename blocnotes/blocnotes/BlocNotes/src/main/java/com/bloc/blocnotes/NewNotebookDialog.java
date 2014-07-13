@@ -73,8 +73,12 @@ public class NewNotebookDialog extends DialogFragment {
 
 
 
-                mCallback.onNewNotebook();
+
                 dismiss();
+
+
+
+                mCallback.onNewNotebook();
             }
         });
 

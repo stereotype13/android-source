@@ -29,13 +29,19 @@ import java.util.List;
 
 
 public class BlocNotes extends Activity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks, NewNotebookDialog.OnNewNotebookListener {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks,
+        NewNotebookDialog.OnNewNotebookListener,
+        QueryNotebookTask.IQueryNotebookTask,
+        NotebookCenter.INotebookCenter {
+
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private NotebookFragment mNotebookFragment;
+    private NotebookCenter mNotebookCenter;
+    private QueryNotebookTask mQueryNotebookTask;
 
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
@@ -45,12 +51,31 @@ public class BlocNotes extends Activity
     private NoteFragment mNoteFragment;
 
     @Override
-    public void onNewNotebook() {
-        Toast.makeText(this, "on new notebook", Toast.LENGTH_SHORT).show();
-
+    public void onDataSetUpdated() {
+        //Notify all necessary components that the dataset was updated.
+        BlocNotesApplication.showMessage("onDataSetUpdated");
         if(mNavigationDrawerFragment != null) {
-            mNavigationDrawerFragment.refresh();
+            mNavigationDrawerFragment.refreshListView();
         }
+
+    }
+
+   @Override
+    public void onNotebookQueryComplete(Cursor cursor) {
+
+        BlocNotesApplication.showMessage("The query has completed");
+        BlocNotesApplication.showMessage("There are " + cursor.getCount() + " records in the cursor.");
+        NotebookCenter.getInstance(this).fill(cursor);
+
+
+    }
+
+    @Override
+    public void onNewNotebook() {
+
+        //A new notebook has been inserted into the database, so re-query (in a seperate thread)
+        QueryNotebookTask queryNotebookTask = new QueryNotebookTask(this);
+        queryNotebookTask.execute();
     }
 
     public static class CustomStylePreferenceFragment extends PreferenceFragment {
@@ -71,8 +96,27 @@ public class BlocNotes extends Activity
         //BlocNotesApplication.get(this).getBlocNotesDBHelper()
         setContentView(R.layout.activity_bloc_notes);
 
+        //First, create a notebook data center
+        mNotebookCenter = NotebookCenter.getInstance(this);
+
+        mQueryNotebookTask = new QueryNotebookTask(this);
+
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
+
+        /*Cursor cursor =
+                BlocNotesApplication.getBlocNotesDBHelper().getWritableDatabase().query(true,
+                        "Notebooks",
+                        null, null,
+                        null,
+                        null, null, null, null);
+
+        BlocNotesApplication.showMessage("Cursor has " + cursor.getCount() + " records");
+
+        mNotebookCenter.fill(cursor);*/
+
+
+
         mTitle = getTitle();
 
         // New NoteFragment
@@ -81,7 +125,8 @@ public class BlocNotes extends Activity
             mNoteFragment = new NoteFragment();
 
             getFragmentManager().beginTransaction().replace(R.id.container, mNoteFragment, "note_fragment").addToBackStack(null).commit();
-        } else {
+        }
+        else {
 
             mNoteFragment = (NoteFragment) getFragmentManager().findFragmentByTag("note_fragment");
         }
@@ -103,6 +148,7 @@ public class BlocNotes extends Activity
 
 
         if(mNavigationDrawerFragment != null) {
+
             notebook = mNavigationDrawerFragment.getNotebookFromPosition(position);
             Toast.makeText(this, notebook.toString(), Toast.LENGTH_SHORT).show();
 

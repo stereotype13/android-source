@@ -1,5 +1,6 @@
 package com.bloc.blocnotes;
 
+import android.content.Context;
 import android.database.Cursor;
 
 import java.util.ArrayList;
@@ -10,10 +11,23 @@ import java.util.List;
  */
 public class NotebookCenter extends ModelCenter<Notebook> {
 
+    private static NotebookCenter mNotebookCenter = null;
+    private INotebookCenter listener;
     public List<Notebook> notebooks;
 
-    public NotebookCenter() {
+    private NotebookCenter(Context context) {
         super("Notebooks");
+        listener = (INotebookCenter) context;
+
+    }
+
+    public static NotebookCenter getInstance(Context context) {
+
+        if(mNotebookCenter == null) {
+            mNotebookCenter = new NotebookCenter(context);
+        }
+
+        return mNotebookCenter;
     }
 
     @Override
@@ -22,15 +36,15 @@ public class NotebookCenter extends ModelCenter<Notebook> {
     }
 
     //Gets ALL notebooks!
-    public void fill() {
+    public void fill(Cursor cursor) {
         notebooks = new ArrayList<Notebook>();
 
-        Cursor cursor =
+        /*Cursor cursor =
                 BlocNotesApplication.getBlocNotesDBHelper().getWritableDatabase().query(true,
                         "Notebooks",
                         null, null,
                         null,
-                        null, null, null, null);
+                        null, null, null, null);*/
 
         while(cursor.moveToNext()) {
             Notebook notebook = new Notebook();
@@ -41,6 +55,12 @@ public class NotebookCenter extends ModelCenter<Notebook> {
             notebooks.add(notebook);
         }
 
+        listener.onDataSetUpdated();
 
+
+    }
+
+    public interface INotebookCenter {
+        public void onDataSetUpdated();
     }
 }
