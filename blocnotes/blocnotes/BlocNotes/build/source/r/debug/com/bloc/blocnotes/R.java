@@ -61,6 +61,7 @@ public final class R {
         public static final int fragment_new_notebook_dialog=0x7f030004;
         public static final int fragment_note=0x7f030005;
         public static final int fragment_notebook=0x7f030006;
+        public static final int fragment_notebook_empty=0x7f030007;
     }
     public static final class menu {
         public static final int bloc_notes=0x7f090000;

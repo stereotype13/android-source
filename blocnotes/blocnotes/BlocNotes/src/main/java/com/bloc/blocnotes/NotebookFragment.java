@@ -42,12 +42,18 @@ public class NotebookFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_notebook, container, false);
+        View rootView;
 
-        mNotesListView = (ListView) rootView.findViewById(R.id.notesListView);
+        if(mNotebook == null || mNotebook.notes.isEmpty()) {
+            rootView = inflater.inflate(R.layout.fragment_notebook_empty, container, false);
+        }
+        else {
+            rootView = inflater.inflate(R.layout.fragment_notebook, container, false);
+            mNotesListView = (ListView) rootView.findViewById(R.id.notesListView);
 
-        setNotes(mNotebook);
-
+            setNotes(mNotebook);
+        }
+        
         return rootView;
 
     }
