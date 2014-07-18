@@ -44,6 +44,11 @@
                 qualifiers="hdpi"
                 type="drawable" />
             <file
+                name="ic_three_dots"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-hdpi\ic_three_dots.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
                 name="button_default"
                 path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-mdpi\button_default.png"
                 qualifiers="mdpi"
@@ -76,6 +81,11 @@
             <file
                 name="ic_menu_view"
                 path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-mdpi\ic_menu_view.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_three_dots"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-mdpi\ic_three_dots.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
@@ -114,6 +124,11 @@
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
+                name="ic_three_dots"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-xhdpi\ic_three_dots.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
                 name="drawer_shadow"
                 path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-xxhdpi\drawer_shadow.9.png"
                 qualifiers="xxhdpi"
@@ -131,6 +146,11 @@
             <file
                 name="ic_menu_view"
                 path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-xxhdpi\ic_menu_view.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="ic_three_dots"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\drawable-xxhdpi\ic_three_dots.png"
                 qualifiers="xxhdpi"
                 type="drawable" />
             <file
@@ -154,6 +174,11 @@
                 qualifiers=""
                 type="layout" />
             <file
+                name="fragment_navigation_drawer_list_item"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\layout\fragment_navigation_drawer_list_item.xml"
+                qualifiers=""
+                type="layout" />
+            <file
                 name="fragment_new_notebook_dialog"
                 path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\layout\fragment_new_notebook_dialog.xml"
                 qualifiers=""
@@ -166,6 +191,11 @@
             <file
                 name="fragment_notebook"
                 path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\layout\fragment_notebook.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="fragment_notebook_empty"
+                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\layout\fragment_notebook_empty.xml"
                 qualifiers=""
                 type="layout" />
             <file
@@ -304,11 +334,6 @@ fonts/impact.ttf
                 path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\xml\preferences.xml"
                 qualifiers=""
                 type="xml" />
-            <file
-                name="fragment_notebook_empty"
-                path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\src\main\res\layout\fragment_notebook_empty.xml"
-                qualifiers=""
-                type="layout" />
         </source>
         <source path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\build\res\rs\debug" />
         <source path="C:\Users\rhodel\Documents\bloc\android\blocnotes\blocnotes\BlocNotes\build\res\generated\debug" />

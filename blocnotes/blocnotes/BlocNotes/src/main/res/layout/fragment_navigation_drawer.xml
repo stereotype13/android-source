@@ -6,4 +6,8 @@
     android:divider="@android:color/transparent"
     android:dividerHeight="0dp"
     android:background="#cccc"
-    tools:context="com.bloc.blocnotes.NavigationDrawerFragment" />
+    tools:context="com.bloc.blocnotes.NavigationDrawerFragment"
+    >
+
+
+</ListView>

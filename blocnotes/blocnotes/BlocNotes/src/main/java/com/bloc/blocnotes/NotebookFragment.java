@@ -53,7 +53,7 @@ public class NotebookFragment extends Fragment {
 
             setNotes(mNotebook);
         }
-        
+
         return rootView;
 
     }

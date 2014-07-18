@@ -18,9 +18,14 @@ import android.widget.Toast;
 public class NoteFragment extends Fragment {
 
     private EditText mEditText;
+    private Note mNote;
 
     public NoteFragment() {
 
+    }
+
+    public NoteFragment(Note note) {
+        mNote = note;
     }
 
     @Override
@@ -76,6 +81,10 @@ public class NoteFragment extends Fragment {
             mEditText.setText(savedInstanceState.getString("body"));
         }
 
+        if(mNote != null) {
+            mEditText.setText(mNote.getBody());
+        }
+
         return rootView;
     }
 
@@ -92,6 +101,13 @@ public class NoteFragment extends Fragment {
 
 
 
+    }
+
+    public void saveNote() {
+
+        if(mNote != null) {
+            mNote.save();
+        }
     }
 
 

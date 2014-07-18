@@ -2,6 +2,7 @@ package com.bloc.blocnotes;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  * Created by stereotype13 on 6/29/14.
  */
 public class Note extends Model {
-    private int mId;
+    private long mId;
     private String mBody;
     private int mNotebookID;
     private Notebook mNotebook; //parent notebook
@@ -56,7 +57,7 @@ public class Note extends Model {
         return notes;
     }
 
-    public int getId() {
+    public long getId() {
         return mId;
     }
 
@@ -64,7 +65,7 @@ public class Note extends Model {
         return mBody;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         mId = id;
     }
 
@@ -86,6 +87,7 @@ public class Note extends Model {
         mNotebookID = notebook.getId();
         mBody = body;
         mNotebook = notebook;
+        mTableName = "Notes";
     }
 
     public Note(int id, int notebookID, String body) {
@@ -93,12 +95,22 @@ public class Note extends Model {
         mNotebookID = notebookID;
         mBody = body;
         mNotebook = null;
+        mTableName = "Notes";
     }
 
     public Note() {
-        mId = -1;
-        mNotebookID = -1;
-        mBody = null;
+
+        mBody = "";
+        mTableName = "Notes";
+
+        SQLiteDatabase db =  BlocNotesApplication.getBlocNotesDBHelper().getWritableDatabase();
+
+        //mId = db.insert("Notebooks", "BODY", null);
+        mId = db.insert(mTableName, "NOTEBOOK_ID", null);
+        db.close();
+
+
+
     }
 
     @Override

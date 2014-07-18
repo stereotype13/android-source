@@ -32,7 +32,7 @@ public class BlocNotes extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
         NewNotebookDialog.OnNewNotebookListener,
         QueryNotebookTask.IQueryNotebookTask,
-        NotebookCenter.INotebookCenter {
+        NotebookCenter.INotebookCenter, NotebookArrayAdapter.INotebookArrayAdapterListener {
 
 
     /**
@@ -63,8 +63,8 @@ public class BlocNotes extends Activity
    @Override
     public void onNotebookQueryComplete(Cursor cursor) {
 
-        BlocNotesApplication.showMessage("The query has completed");
-        BlocNotesApplication.showMessage("There are " + cursor.getCount() + " records in the cursor.");
+        //BlocNotesApplication.showMessage("The query has completed");
+        //BlocNotesApplication.showMessage("There are " + cursor.getCount() + " records in the cursor.");
         NotebookCenter.getInstance(this).fill(cursor);
 
 
@@ -236,6 +236,13 @@ public class BlocNotes extends Activity
                 //getFragmentManager().beginTransaction().replace(R.id.container, new CustomStylePreferenceFragment()).commit();
                 //Start new activity that will contain the CustomStylePreferenceFragment
                 getFragmentManager().beginTransaction().replace(R.id.container, new CustomStylePreferenceFragment()).addToBackStack(null).commit();
+                break;
+            case R.id.save_note:
+                NoteFragment noteFragment = (NoteFragment)getFragmentManager().findFragmentByTag("note_fragment");
+                if(noteFragment != null) {
+                    noteFragment.saveNote();
+                }
+                break;
             default:
         }
         return super.onOptionsItemSelected(item);
@@ -296,6 +303,27 @@ public class BlocNotes extends Activity
 
     public void onThemeChange(CustomStyleDialogFragment dialog, int themeId) {
 
+    }
+
+    public void onPopupMenuNewNotebook(View v) {
+        Notebook notebook = (Notebook)v.getTag();
+
+        Note note = new Note();
+        note.setNotebook(notebook);
+        notebook.notes.add(note);
+
+        mNoteFragment = new NoteFragment(note);
+
+        getFragmentManager().beginTransaction().replace(R.id.container, mNoteFragment, "note_fragment").addToBackStack(null).commit();
+
+        if(mNavigationDrawerFragment != null) {
+            mNavigationDrawerFragment.closeDrawer();
+        }
+
+    }
+
+    public void onMenuSaveNote() {
+        //
     }
 
 

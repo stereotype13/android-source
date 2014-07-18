@@ -16,6 +16,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,6 +25,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.bloc.blocnotes.R;
@@ -77,7 +79,8 @@ public class NavigationDrawerFragment extends Fragment {
     public NavigationDrawerFragment() {
     }
 
-    private ArrayAdapter<Notebook> mArrayAdapter;
+    //private ArrayAdapter<Notebook> mArrayAdapter;
+    private NotebookArrayAdapter mArrayAdapter;
 
     public void refresh() {
 
@@ -161,16 +164,16 @@ public class NavigationDrawerFragment extends Fragment {
             }
             else
             {
-                mArrayAdapter = new ArrayAdapter<Notebook>(
+                mArrayAdapter = new NotebookArrayAdapter(
                         getActionBar().getThemedContext(),
-                        android.R.layout.simple_list_item_activated_1,
-                        android.R.id.text1,
+                        R.layout.fragment_navigation_drawer_list_item,
                         notebookList);
             }
 
             BlocNotesApplication.showMessage("refreshing the DrawerListView and setting the adapter");
+            Log.d("Test","refreshing the DrawerListView and setting the adapter");
             mDrawerListView.setAdapter(mArrayAdapter);
-            mDrawerListView.invalidateViews();
+
 
         }
 
@@ -306,6 +309,12 @@ public class NavigationDrawerFragment extends Fragment {
         }
     }
 
+    public void closeDrawer() {
+        if (mDrawerLayout != null) {
+            mDrawerLayout.closeDrawer(mFragmentContainerView);
+        }
+    }
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -353,17 +362,13 @@ public class NavigationDrawerFragment extends Fragment {
             return true;
         }
 
-        if (item.getItemId() == R.id.action_example) {
+        if (item.getItemId() == R.id.save_note) {
             Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
             return true;
         }
 
         switch (item.getItemId()) {
             case R.id.add_notebook:
-                //Toast.makeText(getActivity(), "Coming Soon!", Toast.LENGTH_SHORT).show();
-                //getFragmentManager().executePendingTransactions();
-                //getFragmentManager().beginTransaction().replace(R.id.container, new NewNotebookDialog()).addToBackStack(null).commit();
-
 
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
 
