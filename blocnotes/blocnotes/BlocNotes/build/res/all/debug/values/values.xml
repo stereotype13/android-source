@@ -26,6 +26,13 @@
         <item>fonts/HelveticaNeue_Lt.ttf</item>
         <item>fonts/impact.ttf</item>
     </string-array>
+    <string-array name="reminder_intervals">
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>60 minutes</item>
+    </string-array>
     <!-- From: file:/C:/Users/rhodel/Documents/bloc/android/blocnotes/blocnotes/BlocNotes/src/main/res/values/dimens.xml -->
     <eat-comment />
 

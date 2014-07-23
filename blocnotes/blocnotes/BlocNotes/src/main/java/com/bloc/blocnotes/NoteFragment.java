@@ -6,6 +6,9 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -37,6 +40,8 @@ public class NoteFragment extends Fragment {
            // mBodyText = savedInstanceState.getString("body");
 
         }
+
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -98,9 +103,6 @@ public class NoteFragment extends Fragment {
 
         }
 
-
-
-
     }
 
     public void saveNote() {
@@ -110,6 +112,39 @@ public class NoteFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.note_menu, menu);
 
+        //restoreActionBar();
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.add_reminder:
+
+                ReminderFragment reminderFragment;
+
+                if(mNote != null) {
+                    reminderFragment = new ReminderFragment(getActivity(), mNote);
+                }
+                else {
+                    if(mEditText != null) {
+                        Note note = new Note();
+                        note.setBody(mEditText.getText().toString());
+                        reminderFragment = new ReminderFragment(getActivity(), note);
+                    }
+                    else {
+                        reminderFragment = new ReminderFragment(getActivity());
+                    }
+
+                }
+
+                reminderFragment.show(getFragmentManager(), "REMINDER_DIALOG");
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

@@ -3,8 +3,10 @@ package com.bloc.blocnotes;
 import android.app.Activity;
 
 import android.app.ActionBar;
+import android.app.AlarmManager;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -32,7 +34,7 @@ public class BlocNotes extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
         NewNotebookDialog.OnNewNotebookListener,
         QueryNotebookTask.IQueryNotebookTask,
-        NotebookCenter.INotebookCenter, NotebookArrayAdapter.INotebookArrayAdapterListener {
+        NotebookCenter.INotebookCenter, NotebookArrayAdapter.INotebookArrayAdapterListener, ReminderFragment.ReminderFragmentListener {
 
 
     /**
@@ -143,7 +145,7 @@ public class BlocNotes extends Activity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
 
-        Toast.makeText(this, Integer.toString(position) + " is the position", Toast.LENGTH_SHORT).show();
+
         Notebook notebook = new Notebook(2, "Some other notebook");
 
 
@@ -327,5 +329,38 @@ public class BlocNotes extends Activity
     }
 
 
+    @Override
+    public void onReminderIntervalSelected(String interval, Note note) {
 
+        Intent noteReminder = new Intent(this, NoteReminderReceiver.class);
+        noteReminder.setAction("SHOW_NOTIFICATION");
+        noteReminder.putExtra("NOTE", note.getBody());
+
+        PendingIntent noteReminderPending = PendingIntent.getBroadcast(this, 0, noteReminder, 0);
+
+        AlarmManager alarmManager = (AlarmManager)this.getSystemService(Context.ALARM_SERVICE);
+
+
+
+        if(interval.equals("5 minutes")) {
+            //alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 5*60*1000, noteReminderPending);
+            alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 1000, noteReminderPending);
+        }
+
+        if(interval.equals("10 minutes")) {
+            alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 10*60*1000, noteReminderPending);
+        }
+
+        if(interval.equals("15 minutes")) {
+            alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 15*60*1000, noteReminderPending);
+        }
+
+        if(interval.equals("30 minutes")) {
+            alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 30*60*1000, noteReminderPending);
+        }
+
+        if(interval.equals("60 minutes")) {
+            alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 60*60*1000, noteReminderPending);
+        }
+    }
 }

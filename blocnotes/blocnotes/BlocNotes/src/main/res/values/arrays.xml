@@ -22,4 +22,11 @@
         <item>25</item>
         <item>50</item>
     </string-array>
+    <string-array name="reminder_intervals">
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>60 minutes</item>
+    </string-array>
 </resources>
