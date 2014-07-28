@@ -128,12 +128,18 @@ public class NoteFragment extends Fragment {
                 ReminderFragment reminderFragment;
 
                 if(mNote != null) {
+                    if(mEditText != null) {
+                        mNote.setBody(mEditText.getText().toString());
+                        mNote.save();
+                    }
+
                     reminderFragment = new ReminderFragment(getActivity(), mNote);
                 }
                 else {
                     if(mEditText != null) {
                         Note note = new Note();
                         note.setBody(mEditText.getText().toString());
+                        note.save();
                         reminderFragment = new ReminderFragment(getActivity(), note);
                     }
                     else {

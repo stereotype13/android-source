@@ -17,12 +17,25 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
+        </activity>
+
+        <activity android:name=".ShowNoteFragmentIntent"
+            android:enabled="true"
+            >
+
+        </activity>
+
+        <activity android:name=".ShowSnoozeFragment">
+
         </activity>
 
         <receiver android:name=".NoteReminderReceiver"
             android:enabled="true" >
                 <intent-filter>
                     <action android:name="SHOW_NOTIFICATION"></action>
+
                 </intent-filter>
 
             </receiver>

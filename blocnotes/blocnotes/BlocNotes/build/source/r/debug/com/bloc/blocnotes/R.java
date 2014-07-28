@@ -31,7 +31,9 @@ public final class R {
         public static final int ic_drawer=0x7f020005;
         public static final int ic_launcher=0x7f020006;
         public static final int ic_menu_view=0x7f020007;
-        public static final int ic_three_dots=0x7f020008;
+        public static final int ic_stat_dismiss=0x7f020008;
+        public static final int ic_stat_snooze=0x7f020009;
+        public static final int ic_three_dots=0x7f02000a;
     }
     public static final class id {
         public static final int action_settings_global=0x7f0a0017;

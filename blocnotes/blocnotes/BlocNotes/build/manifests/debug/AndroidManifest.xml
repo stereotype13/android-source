@@ -1,4 +1,4 @@
-<!-- From: file:/C:/Users/rhodel/Documents/bloc/android/blocnotes/blocnotes/BlocNotes/src/main/AndroidManifest.xml --><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.bloc.blocnotes">
+<!-- From: file:/Users/stereotype13/android/android-source/blocnotes/blocnotes/BlocNotes/src/main/AndroidManifest.xml --><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.bloc.blocnotes">
     <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="19"/>
 
     <application android:allowBackup="true" android:debuggable="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="com.bloc.blocnotes.BlocNotesApplication" android:theme="@style/AppTheme">
@@ -8,11 +8,22 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
+
+        </activity>
+
+        <activity android:enabled="true" android:name="com.bloc.blocnotes.ShowNoteFragmentIntent">
+ 
+        </activity>
+
+        <activity android:name="com.bloc.blocnotes.ShowSnoozeFragment">
+
         </activity>
 
         <receiver android:enabled="true" android:name="com.bloc.blocnotes.NoteReminderReceiver">
                 <intent-filter>
                     <action android:name="SHOW_NOTIFICATION"/>
+
                 </intent-filter>
 
             </receiver>

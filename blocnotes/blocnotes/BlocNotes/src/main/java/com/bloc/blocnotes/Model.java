@@ -2,6 +2,7 @@ package com.bloc.blocnotes;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 import com.bloc.blocnotes.BlocNotesApplication;
 
@@ -67,9 +68,21 @@ public abstract class Model {
 
     public final void save() {
         ContentValues values = _getContentValues();
-        BlocNotesApplication.getBlocNotesDBHelper().getWritableDatabase().update(mTableName,
-                values, "_id=",
-                new String[]{String.valueOf(getRowId())});
+
+        SQLiteDatabase db = BlocNotesApplication.getBlocNotesDBHelper().getWritableDatabase();
+
+        Cursor cursor = db.query(mTableName, new String[]{"_id"}, String.valueOf(getRowId()), null, null, null, null );
+
+        if(cursor.getCount() > 0) {
+            db.update(mTableName,
+                    values, "_id=",
+                    new String[]{String.valueOf(getRowId())});
+        }
+        else
+        {
+            db.insert(mTableName, null, values);
+        }
+
     }
 
     public final long getRowId() {

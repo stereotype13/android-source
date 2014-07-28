@@ -98,6 +98,23 @@ public class BlocNotes extends Activity
         //BlocNotesApplication.get(this).getBlocNotesDBHelper()
         setContentView(R.layout.activity_bloc_notes);
 
+        Intent intent = getIntent();
+
+        if(intent != null) {
+            if(intent.getAction().equals("SHOW_SNOOZE")) {
+                Bundle bundle = intent.getExtras();
+
+                int noteID = bundle.getInt("NOTE_ID");
+
+                Note note = Note.getNoteByID(noteID);
+
+                NoteFragment noteFragment = new NoteFragment(note);
+
+                getFragmentManager().beginTransaction().replace(R.id.container, noteFragment, "INTENT_NOTE_FRAGMENT");
+            }
+
+        }
+
         //First, create a notebook data center
         mNotebookCenter = NotebookCenter.getInstance(this);
 
@@ -335,6 +352,7 @@ public class BlocNotes extends Activity
         Intent noteReminder = new Intent(this, NoteReminderReceiver.class);
         noteReminder.setAction("SHOW_NOTIFICATION");
         noteReminder.putExtra("NOTE", note.getBody());
+        noteReminder.putExtra("NOTE_ID", note.getId());
 
         PendingIntent noteReminderPending = PendingIntent.getBroadcast(this, 0, noteReminder, 0);
 
@@ -344,7 +362,7 @@ public class BlocNotes extends Activity
 
         if(interval.equals("5 minutes")) {
             //alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 5*60*1000, noteReminderPending);
-            alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 1000, noteReminderPending);
+            alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 5*60*1000, noteReminderPending);
         }
 
         if(interval.equals("10 minutes")) {
@@ -363,4 +381,6 @@ public class BlocNotes extends Activity
             alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 60*60*1000, noteReminderPending);
         }
     }
+
+
 }

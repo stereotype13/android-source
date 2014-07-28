@@ -34,7 +34,17 @@ public class Note extends Model {
         return values;
     }
 
-    static List<Note> getNotesForNotebook(Notebook notebook) {
+    public static Note getNoteByID(long _id) {
+        Cursor cursor = BlocNotesApplication.getBlocNotesDBHelper().getReadableDatabase().rawQuery(String.format("SELECT * FROM Notes WHERE _id = %s", _id), null);
+
+        Note note = new Note();
+        note.setId(cursor.getInt(cursor.getColumnIndex("_id")));
+        note.setBody(cursor.getString(cursor.getColumnIndex("BODY")));
+
+        return note;
+    }
+
+    public static List<Note> getNotesForNotebook(Notebook notebook) {
         List<Note> notes = new ArrayList<Note>();
 
         Cursor notesCursor = BlocNotesApplication.getBlocNotesDBHelper().getWritableDatabase().rawQuery(String.format("SELECT * FROM Notes WHERE NOTEBOOK_ID = %s", notebook.getId()), null);
