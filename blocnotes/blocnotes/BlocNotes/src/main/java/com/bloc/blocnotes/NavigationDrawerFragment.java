@@ -1,6 +1,9 @@
 package com.bloc.blocnotes;
 
 
+import android.animation.AnimatorSet;
+import android.animation.LayoutTransition;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -196,6 +199,15 @@ public class NavigationDrawerFragment extends Fragment {
 
         });
 
+        AnimatorSet goLeftAndHide = new AnimatorSet();
+        goLeftAndHide.playTogether(
+                ObjectAnimator.ofInt(null, "x", 0, -mDrawerListView.getWidth()).setDuration(100),
+                ObjectAnimator.ofFloat(null, "alpha", 1f, 0f).setDuration(80));
+        LayoutTransition layoutTransition = new LayoutTransition();
+        layoutTransition.setAnimator(LayoutTransition.DISAPPEARING, goLeftAndHide);
+
+        mDrawerListView.setLayoutTransition(layoutTransition);
+
         /*NotebookCenter tempCenter = NotebookCenter.getInstance(getActivity());
 
 
@@ -206,9 +218,9 @@ public class NavigationDrawerFragment extends Fragment {
                 tempCenter.notebooks);*/
 
 
-        //mDrawerListView.setAdapter(mArrayAdapter);
+                //mDrawerListView.setAdapter(mArrayAdapter);
 
-        refreshListView();
+                refreshListView();
 
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;

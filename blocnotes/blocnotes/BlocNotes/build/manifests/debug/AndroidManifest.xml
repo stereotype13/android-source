@@ -13,7 +13,7 @@
         </activity>
 
         <activity android:enabled="true" android:name="com.bloc.blocnotes.ShowNoteFragmentIntent">
- 
+
         </activity>
 
         <activity android:name="com.bloc.blocnotes.ShowSnoozeFragment">
