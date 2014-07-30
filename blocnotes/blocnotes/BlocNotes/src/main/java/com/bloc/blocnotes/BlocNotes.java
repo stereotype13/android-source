@@ -10,8 +10,11 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.preference.PreferenceFragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -26,6 +29,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +45,9 @@ public class BlocNotes extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
         NewNotebookDialog.OnNewNotebookListener,
         QueryNotebookTask.IQueryNotebookTask,
-        NotebookCenter.INotebookCenter, NotebookArrayAdapter.INotebookArrayAdapterListener, ReminderFragment.ReminderFragmentListener {
+        NotebookCenter.INotebookCenter, NotebookArrayAdapter.INotebookArrayAdapterListener, ReminderFragment.ReminderFragmentListener,
+        ImageURLFragment.ImageURLFragmentListener, GetLogoTask.IGetLogoTaskListener
+        {
 
 
     /**
@@ -382,5 +395,50 @@ public class BlocNotes extends Activity
         }
     }
 
+    @Override
+    public void onURLSelected(String url, Note note) {
+        //Fetch the image from the URL
+        GetLogoTask getLogoTask = new GetLogoTask(this);
 
-}
+        Long noteID = note.getId();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("LOGO_URL", url);
+        bundle.putLong("NOTE_ID", noteID);
+
+        getLogoTask.execute(bundle);
+
+
+    }
+
+            @Override
+            public void onGetLogoTaskCompleted(Bitmap bitmap, Long noteID, String url) {
+                saveImageToSD(bitmap, noteID.toString());
+
+
+            }
+
+            public void saveImageToSD(Bitmap image, String name) {
+                if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED) == false) {
+                    return;
+                }
+
+                ByteArrayOutputStream imageBytes = new ByteArrayOutputStream();
+                image.compress(Bitmap.CompressFormat.PNG, 100, imageBytes);
+                File extCache = getExternalCacheDir();
+                File cachedImageFile = new File(extCache.getAbsolutePath()
+                        + File.separator + name);
+                try {
+                    cachedImageFile.createNewFile();
+                    FileOutputStream fos = new FileOutputStream(cachedImageFile);
+                    fos.write(imageBytes.toByteArray());
+                    fos.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+
+        }

@@ -14,6 +14,7 @@ public class Note extends Model {
     private long mId;
     private String mBody;
     private int mNotebookID;
+    private String mURL;
     private Notebook mNotebook; //parent notebook
 
     // Populate model with data from the cursor
@@ -82,6 +83,9 @@ public class Note extends Model {
     public void setBody(String body) {
         mBody = body;
     }
+
+    public void setURL(String url) {mURL = url;}
+    public String getURL(){return mURL;}
 
     public void setNotebook(Notebook notebook) {
         mNotebook = notebook;

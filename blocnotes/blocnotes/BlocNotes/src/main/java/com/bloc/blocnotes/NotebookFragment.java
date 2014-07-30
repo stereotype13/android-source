@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -21,6 +22,7 @@ public class NotebookFragment extends Fragment {
     private ListView mNotesListView;
     private List<Note> mNoteList;
     private Notebook mNotebook;
+    private static final String IMAGE_URL_FRAGMENT_TAG = "IMAGE_URL_FRAGMENT_TAG";
 
     public NotebookFragment() {
 
@@ -52,6 +54,18 @@ public class NotebookFragment extends Fragment {
             mNotesListView = (ListView) rootView.findViewById(R.id.notesListView);
 
             setNotes(mNotebook);
+
+            mNotesListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Note note = (Note)adapterView.getItemAtPosition(i);
+                    ImageURLFragment imageURLFragment = new ImageURLFragment(getActivity(), note);
+                    imageURLFragment.show(getFragmentManager(), IMAGE_URL_FRAGMENT_TAG);
+                    return true;
+                }
+            });
+
+
         }
 
         return rootView;

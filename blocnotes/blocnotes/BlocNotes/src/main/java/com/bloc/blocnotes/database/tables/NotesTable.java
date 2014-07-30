@@ -12,6 +12,7 @@ public class NotesTable extends Table {
                     "_id INTEGER PRIMARY KEY autoincrement," +
                     "BODY TEXT," +
                     "NOTEBOOK_ID INTEGER" +
+                    "URL TEXT" +
                     " )";
 
     public NotesTable(String name) {
