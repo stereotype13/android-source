@@ -51,6 +51,7 @@ public class ImageURLFragment extends DialogFragment {
                 }
 
                 mImageURLFragmentListener.onURLSelected(mURL, mNote);
+                dismiss();
             }
         });
 

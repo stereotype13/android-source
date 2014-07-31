@@ -29,7 +29,7 @@ public class Note extends Model {
     @Override
     protected ContentValues _getContentValues() {
         ContentValues values = new ContentValues();
-        values.put("_id", mId);
+        //svalues.put("_id", mId);
         values.put("BODY", mBody);
         values.put("NOTEBOOK_ID", mNotebookID);
         return values;
@@ -121,6 +121,7 @@ public class Note extends Model {
 
         //mId = db.insert("Notebooks", "BODY", null);
         mId = db.insert(mTableName, "NOTEBOOK_ID", null);
+        mRowId = mId;
         db.close();
 
 

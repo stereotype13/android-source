@@ -71,17 +71,19 @@ public abstract class Model {
 
         SQLiteDatabase db = BlocNotesApplication.getBlocNotesDBHelper().getWritableDatabase();
 
-        Cursor cursor = db.query(mTableName, new String[]{"_id"}, String.valueOf(getRowId()), null, null, null, null );
+        //Cursor cursor = db.query(mTableName, new String[]{"_id"}, "_id", new String[]{String.valueOf(getRowId())}, null, null, null, null);
 
-        if(cursor.getCount() > 0) {
-            db.update(mTableName,
-                    values, "_id=",
-                    new String[]{String.valueOf(getRowId())});
+        db.update(mTableName, values, "_id = ?", new String[]{String.valueOf(getRowId())});
+
+
+
+       /* if(cursor.getCount() > 0) {
+
         }
         else
         {
             db.insert(mTableName, null, values);
-        }
+        }*/
 
     }
 
